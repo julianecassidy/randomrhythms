@@ -1,11 +1,12 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import type { User } from "./types";
 
 /** Component for RoutesList
  *
  * Props:
  * - signup()
  * - login()
- * - currentUser: { username, name }
+ * - currentUser: { email, name }
  *
  * State:
  * - none
@@ -14,7 +15,13 @@ import { Routes, Route, Navigate } from "react-router-dom";
  * RandomConcert }
  */
 
-function RoutesList({ signup, login, currentUser }) {
+type RoutesListProps = {
+    signup: Function;
+    login: Function;
+    currentUser: User;
+}
+
+function RoutesList({ signup, login, currentUser }: RoutesListProps) {
     console.debug("RoutesList");
 
     return (

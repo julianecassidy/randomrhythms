@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import logo from '/8thNote.svg'
-import './App.css'
+import logo from '/8thNote.svg';
+import './App.css';
 
 /** App for RandomRhythms
  *
@@ -9,7 +9,7 @@ import './App.css'
  * - none
  *
  * State:
- * - user:
+ * - user: { id, email, name }
  *
  * App -> { RoutesList, NavBar, Footer }
  */
@@ -17,10 +17,14 @@ import './App.css'
 function App() {
 
   return (
-    <BrowserRouter>
-
-    </BrowserRouter>
-  )
+    <>
+      <BrowserRouter>
+        <NavBar />
+        <RoutesList signup={signup} login={login} currentUser={currentUser} />
+      </BrowserRouter>
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;
