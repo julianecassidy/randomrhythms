@@ -1,5 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import type { User } from "./types";
+import Homepage from "./pages/Homepage";
+import NotFound from "./pages/NotFound";
 
 /** Component for RoutesList
  *
@@ -43,7 +45,7 @@ function RoutesList({ signup, login, currentUser }: RoutesListProps) {
                 </>
             }
 
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 }
