@@ -12,7 +12,7 @@ import './App.css';
  * - none
  *
  * State:
- * - user: { id, email, name }
+ * - currentUser: { id, email, name }
  *
  * App -> { RoutesList, NavBar, Footer }
  */

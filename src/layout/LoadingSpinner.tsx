@@ -1,10 +1,10 @@
 /** Component for LoadingSpinner
  *
  * Props:
- * -
+ * - None
  *
  * State:
- * -
+ * - None
  *
  * { Concert, RandomConcert, ConcertDetail } -> LoadingSpinner
  */

@@ -1,6 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import type { User } from "./types";
 import Homepage from "./pages/Homepage";
+import Login from "./users/Login";
+import Signup from "./users/Signup";
+import Concerts from "./concerts/Concerts";
+import ConcertDetail from "./concerts/ConcertDetail";
+import RandomConcert from "./concerts/RandomConcert";
 import NotFound from "./pages/NotFound";
 
 /** Component for RoutesList
@@ -18,8 +23,8 @@ import NotFound from "./pages/NotFound";
  */
 
 type RoutesListProps = {
-    signup: Function;
-    login: Function;
+    signup: () => void;
+    login: () => void;
     currentUser: User;
 }
 
@@ -30,21 +35,20 @@ function RoutesList({ signup, login, currentUser }: RoutesListProps) {
         <Routes>
             {!currentUser &&
                 <>
-                    <Route path="/login" element={<LoginForm login={login} />} />
-                    <Route path="/signup" element={<SignupForm signup={signup} />} />
+                    <Route path="/login" element={<Login login={login} />} />
+                    <Route path="/signup" element={<Signup signup={signup} />} />
                 </>
             }
-
-            <Route path="/" element={<Homepage />} />
 
             {currentUser &&
                 <>
                     <Route path="/concerts" element={<Concerts />} />
                     <Route path="/concerts/:id" element={<ConcertDetail />} />
-                    <Route path="/companies/random" element={<RandomConcert />} />
+                    <Route path="/random" element={<RandomConcert />} />
                 </>
             }
 
+            <Route path="/" element={<Homepage />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );
