@@ -12,11 +12,11 @@
 </div>
 <div align="center">
 
-![Top Languages](https://img.shields.io/github/languages/top/julianecassidy/randomrhythms-api)
-![GitHub repo size](https://img.shields.io/github/repo-size/julianecassidy/randomrhythms-api)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/julianecassidy/randomrhythms-api)
-![GitHub last commit](https://img.shields.io/github/last-commit/julianecassidy/randomrhythms-api)
-<!-- ![GitHub](https://img.shields.io/github/license/julianecassidy/randomrhythms-api) -->
+![Top Languages](https://img.shields.io/github/languages/top/julianecassidy/randomrhythms)
+![GitHub repo size](https://img.shields.io/github/repo-size/julianecassidy/randomrhythms)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/julianecassidy/randomrhythms)
+![GitHub last commit](https://img.shields.io/github/last-commit/julianecassidy/randomrhythms)
+<!-- ![GitHub](https://img.shields.io/github/license/julianecassidy/randomrhythms) -->
 
 </div>
 
@@ -183,11 +183,11 @@ set up and run the app:
 
 ## Contact
 
-[JulianeCassidy](https://julianecassidy.com)
-[LinkedIn](https://www.linkedin.com/in/julianemcassidy/)
+- [Juliane Cassidy](https://julianecassidy.com)
+- [LinkedIn](https://www.linkedin.com/in/julianemcassidy/)
 
-Project Front End Link: [https://github.com/julianecassidy/randomrhythms](https://github.com/julianecassidy/randomrhythms)
-Project Back End Link: [https://github.com/julianecassidy/randomrhythms-api](https://github.com/julianecassidy/randomrhythms-api)
+- Project Front End Link: [https://github.com/julianecassidy/randomrhythms](https://github.com/julianecassidy/randomrhythms)
+- Project Back End Link: [https://github.com/julianecassidy/randomrhythms-api](https://github.com/julianecassidy/randomrhythms-api)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
