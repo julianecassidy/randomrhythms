@@ -12,7 +12,7 @@ import React, { useState } from "react";
  */
 
 type SearchBoxProps = {
-    search: () => void;
+    search: (dateFrom: string, dateTo: string, zipCode: string) => void;
 }
 
 type FormDataState = {

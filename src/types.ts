@@ -18,10 +18,12 @@ export type Concert = {
   openers: Array<{ name: string; genres: Array<string> }>;
   venue: Venue;
   cost: number;
-  date_time: Date;
-  door_time: Date;
+  date: string;
+  time: string;
+  door_time: string;
   ticket_url: string;
   event_status: string;
+  event_source: string;
 };
 
 export type Venue = {
