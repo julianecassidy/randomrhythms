@@ -7,7 +7,7 @@ import RandomConcertForm from "./RandomConcertForm";
  *
  * State:
  * - concert: { id, headliner, openers, venue, cost, date_time, door_time,
- *             ticket_ulr, event_status}
+ *             ticket_url, event_status}
  *
  * RoutesList -> RandomConcert -> RandomConcertForm
  */

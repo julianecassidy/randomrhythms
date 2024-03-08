@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Alert from "../layout/Alert";
 
 /** Component for SearchBox
  *
@@ -7,6 +8,7 @@ import React, { useState } from "react";
  *
  * State:
  * - formData: { dateFrom, dateTo, zipCode }
+ * - formErrors: []
  *
  * Concerts -> SearchBox
  */
@@ -91,7 +93,7 @@ function SearchBox({ search }: SearchBoxProps) {
             />
             <input type="submit">Search</input>
             {formErrors.length
-                ? <Alert type="danger" messages={formErrors} />
+                ? <Alert messages={formErrors} />
                 : null
             }
         </form>

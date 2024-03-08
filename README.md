@@ -171,6 +171,7 @@ set up and run the app:
 
 - [ ] Build MVP front end app
 - [ ] Add testing
+- [ ] Implement geolocation to detect user's location for faster results
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

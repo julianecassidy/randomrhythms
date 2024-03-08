@@ -5,7 +5,7 @@ import ConcertCard from "./ConcertCard";
  *
  * Props:
  * - concerts: [{ id, headliner, openers, venue, cost, date_time, door_time,
- *              ticket_ulr, event_status, event_source},...]
+ *              ticket_url, event_status, event_source},...]
  *
  * State:
  * - none

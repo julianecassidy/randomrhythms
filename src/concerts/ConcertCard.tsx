@@ -5,7 +5,7 @@ import type { Concert } from "../types";
  *
  * Props:
  * - concert: { id, headliner, openers, venue, cost, date_time, door_time,
- *              ticket_ulr, event_status, event_source}
+ *              ticket_url, event_status, event_source}
  *
  * State:
  * - none
@@ -28,7 +28,7 @@ function ConcertCard({ concert }: ConcertCardProps) {
                 />
                 <h3>{concert.headliner.name}</h3>
                 {concert.date} {concert.time}
-                {concert.venue.address}
+                {concert.venue.name}
                 {concert.cost}
             </Link>
         </div>
