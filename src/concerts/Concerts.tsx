@@ -3,7 +3,7 @@ import type { Concert } from "../types";
 import ConcertList from "./ConcertList";
 import FilterBox from "./FilterBox";
 import SearchBox from "./SearchBox";
-import LoadingSpinner from "../layout/LoadingSpinner";
+import LoadingSpinner from "@layout/LoadingSpinner";
 
 /** Component for Concerts
  *

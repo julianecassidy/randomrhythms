@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Alert from "../layout/Alert";
+import Alert from "@layout/Alert";
 
 /** Component for SearchBox
  *

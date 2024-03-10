@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import type { Concert } from "../types";
-import NotFound from "../pages/NotFound";
-import LoadingSpinner from "../layout/LoadingSpinner";
+import NotFound from "@pages/NotFound";
+import LoadingSpinner from "@layout/LoadingSpinner";
 
 /** Component for ConcertDetail
  *
