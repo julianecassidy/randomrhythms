@@ -11,7 +11,7 @@ import LoadingSpinner from "@layout/LoadingSpinner";
  * - none
  *
  * State:
- * - concertData: {concerts: [{ id, headliner, openers, venue, cost, date_time,
+ * - concertData: {concerts: [{ id, headliner, openers, venue, cost, date, time,
  *                 door_time, ticket_url, event_status, event_source},...],
  *                 isLoading: boolean}
  *

@@ -4,7 +4,7 @@ import type { Concert } from "../types";
 /** Component for ConcertCard
  *
  * Props:
- * - concert: { id, headliner, openers, venue, cost, date_time, door_time,
+ * - concert: { id, headliner, openers, venue, cost, date, time, door_time,
  *              ticket_url, event_status, event_source}
  *
  * State:

@@ -10,7 +10,7 @@ import LoadingSpinner from "@layout/LoadingSpinner";
  * - none
  *
  * State:
- * - concertData: {concert: { id, headliner, openers, venue, cost, date_time,
+ * - concertData: {concert: { id, headliner, openers, venue, cost, date, time,
  *                 door_time, ticket_url, event_status, event_source},
  *                 isLoading: boolean}
  *
@@ -52,11 +52,17 @@ function ConcertDetail() {
                     alt={concertData.concert?.headliner.name}
                 />
                 <h3>{concertData.concert?.headliner.name}</h3>
+                Openers:
+                <ul>
+                    {concertData.concert?.openers.map((o, idx) => {
+                        return <li key={idx}>{o.name}</li>
+                    })}
+                </ul>
                 {concertData.concert?.date} {concertData.concert?.time}
                 {concertData.concert?.venue.name}
                 {concertData.concert?.venue.address}
                 {concertData.concert?.cost}
-                {concertData.concert?.door_time}
+                Doors at: {concertData.concert?.door_time}
         </div>
     )
 }
