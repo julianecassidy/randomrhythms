@@ -63,6 +63,31 @@ function FilterBox({ filter } : FilterBoxProps) {
 
     return (
         <form className="FilterBox" onSubmit={handleSubmit}>
+        <label> Minimum:</label>
+        <input
+            type="number"
+            name="minCost"
+            value={formData.minCost}
+            min={0}
+            max={Number(formData.maxCost) - 1}
+            onChange={handleChange}
+        />
+        <input
+            type="number"
+            name="maxCost"
+            value={formData.maxCost}
+            min={Number(formData.minCost + 1)}
+            max={1000}
+            onChange={handleChange}
+        />
+        <input
+            type="number"
+            name="distance"
+            value={formData.distance}
+            min={0}
+            max={DEFAULT_DISTANCE}
+            onChange={handleChange}
+        />
 
 
         </form>
