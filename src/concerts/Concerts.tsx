@@ -12,7 +12,8 @@ import LoadingSpinner from "@layout/LoadingSpinner";
  *
  * State:
  * - concertData: {concerts: [{ id, headliner, openers, venue, cost, date, time,
- *                 door_time, ticket_url, event_status, event_source},...],
+ *                 door_time, ticket_url, event_status, event_source, distance},
+ *                  ...],
  *                 isLoading: boolean}
  *
  * RoutesList -> Concerts -> { ConcertList, SearchBox, FilterBox }
@@ -27,6 +28,7 @@ function Concerts() {
     const [concertData, setConcertData] = useState<ConcertDataState> (
         {concerts: [], isLoading: true}
     );
+    const [displayConcerts, setDisplayConcerts] = useState<Concert[]> ([]);
     console.debug("Concerts", concertData);
 
     /** Takes a dateFrom, dateTo, and zipCode and updates concertData with
@@ -38,15 +40,40 @@ function Concerts() {
         zipCode:string) : Promise<void> {
         const searchResults = await Api.getConcerts(dateFrom, dateTo, zipCode);
         setConcertData({concerts: searchResults, isLoading: false});
+        setDisplayConcerts(searchResults);
+    }
+
+    /** Takes optional distance, minCost, and maxCost and updates
+     * displayConcerts. */
+    function filter(distance: string, minCost: string, maxCost: string) {
+
+        const distanceNum = distance !== "" ? Number(distance) : undefined;
+        const minCostNum = minCost !== "" ? Number(minCost) : undefined;
+        const maxCostNum = maxCost !== "" ? Number(maxCost) : undefined;
+        let filteredConcerts = displayConcerts;
+
+        if (distanceNum) {
+            filteredConcerts = filteredConcerts.filter(c => c.distance < distanceNum);
+        }
+
+        if (minCostNum) {
+            filteredConcerts = filteredConcerts.filter(c => c.cost >= minCostNum);
+        }
+
+        if (maxCostNum) {
+            filteredConcerts = filteredConcerts.filter(c => c.cost <= maxCostNum);
+        }
+
+        setDisplayConcerts(filteredConcerts);
     }
 
     return (
         <div className="Concerts">
             <SearchBox search={search} />
-            <FilterBox />
+            <FilterBox filter={filter}/>
             {
                 concertData.isLoading
-                ? <ConcertList concerts={concertData.concerts} />
+                ? <ConcertList concerts={displayConcerts} />
                 : <LoadingSpinner />
             }
         </div>

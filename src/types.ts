@@ -24,6 +24,7 @@ export type Concert = {
   ticket_url: string;
   event_status: string;
   event_source: string;
+  distance: number;
 };
 
 export type Venue = {

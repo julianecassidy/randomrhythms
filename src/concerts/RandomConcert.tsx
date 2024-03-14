@@ -1,4 +1,4 @@
-import { ReactComponentElement, ReactElement, useState } from "react";
+import { ReactElement, useState } from "react";
 import type { Concert } from "types";
 import RandomConcertForm from "./RandomConcertForm";
 import LoadingSpinner from "@layout/LoadingSpinner";
@@ -11,7 +11,7 @@ import ConcertCard from "./ConcertCard";
  *
  * State:
  * - concert: { id, headliner, openers, venue, cost, date, time, door_time,
- *             ticket_url, event_status}
+ *             ticket_url, event_status, distance}
  *
  * RoutesList -> RandomConcert -> RandomConcertForm
  */
@@ -24,7 +24,7 @@ type SearchDataState = {
     dateFrom: string,
     dateTo: string,
     zipCode: string,
-    cost: string | undefined;
+    cost: string;
 }
 
 function RandomConcert() {
@@ -43,7 +43,7 @@ function RandomConcert() {
         dateFrom: string,
         dateTo: string,
         zipCode: string,
-        cost: string | undefined,
+        cost: string,
     ) {
         setConcertData({concert: null, isLoading: true});
         setSearchData({ dateFrom, dateTo, zipCode, cost });
@@ -71,7 +71,7 @@ function RandomConcert() {
                     <ConcertCard concert={concertData.concert} />
                     <div className="RandomConcert-search-again">
                         <p>Not your jam?</p>
-                        <button onClick={
+                        <button onClick={() =>
                             getRandomConcert(
                                 searchData.dateFrom,
                                 searchData.dateTo,
@@ -93,7 +93,10 @@ function RandomConcert() {
 
     return (
         <div className="RandomConcert">
-            <RandomConcertForm formData={searchData} />
+            <RandomConcertForm
+                initialFormData={searchData}
+                search={getRandomConcert}
+            />
             {displayResults()}
         </div>
     )

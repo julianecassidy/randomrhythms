@@ -27,6 +27,11 @@ function ConcertCard({ concert }: ConcertCardProps) {
                     alt={concert.headliner.name}
                 />
                 <h3>{concert.headliner.name}</h3>
+                <ul>
+                    {concert.headliner.genres.map((g, idx) => {
+                        return <li key={idx}>{g}</li>
+                    })}
+                </ul>
                 {concert.date} {concert.time}
                 {concert.venue.name}
                 {concert.cost}
