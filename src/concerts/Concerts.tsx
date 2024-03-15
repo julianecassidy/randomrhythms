@@ -4,6 +4,8 @@ import ConcertList from "./ConcertList";
 import FilterBox from "./FilterBox";
 import SearchBox from "./SearchBox";
 import LoadingSpinner from "@layout/LoadingSpinner";
+import filterConcerts from "@helpers/concertFiltering";
+import { ConcertApi } from "@helpers/api";
 
 /** Component for Concerts
  *
@@ -38,7 +40,7 @@ function Concerts() {
         dateFrom: string,
         dateTo: string,
         zipCode:string) : Promise<void> {
-        const searchResults = await Api.getConcerts(dateFrom, dateTo, zipCode);
+        const searchResults = await ConcertApi.getConcerts(dateFrom, dateTo, zipCode);
         setConcertData({concerts: searchResults, isLoading: false});
         setDisplayConcerts(searchResults);
     }
@@ -46,23 +48,12 @@ function Concerts() {
     /** Takes optional distance, minCost, and maxCost and updates
      * displayConcerts. */
     function filter(distance: string, minCost: string, maxCost: string) {
-
-        const distanceNum = distance !== "" ? Number(distance) : undefined;
-        const minCostNum = minCost !== "" ? Number(minCost) : undefined;
-        const maxCostNum = maxCost !== "" ? Number(maxCost) : undefined;
-        let filteredConcerts = displayConcerts;
-
-        if (distanceNum) {
-            filteredConcerts = filteredConcerts.filter(c => c.distance < distanceNum);
-        }
-
-        if (minCostNum) {
-            filteredConcerts = filteredConcerts.filter(c => c.cost >= minCostNum);
-        }
-
-        if (maxCostNum) {
-            filteredConcerts = filteredConcerts.filter(c => c.cost <= maxCostNum);
-        }
+        const filteredConcerts = filterConcerts(
+            concertData.concerts,
+            distance,
+            minCost,
+            maxCost,
+        )
 
         setDisplayConcerts(filteredConcerts);
     }

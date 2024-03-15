@@ -18,19 +18,22 @@ type RandomConcertFormProps = {
         dateFrom: string,
         dateTo: string,
         zipCode: string,
+        distance: string,
         cost: string,
     };
     search: (
         dateFrom: string,
         dateTo: string,
         zipCode: string,
-        cost: string) => void;
+        distance: string,
+        cost: string) => Promise<void>;
 };
 
 type FormDataState = {
     dateFrom: string;
     dateTo: string;
     zipCode: string;
+    distance: string;
     cost: string;
 }
 
@@ -61,10 +64,10 @@ function RandomConcertForm({ initialFormData, search }: RandomConcertFormProps) 
     async function handleSubmit(evt: React.FormEvent) {
         evt.preventDefault()
 
-        const { dateFrom, dateTo, zipCode, cost } = formData;
+        const { dateFrom, dateTo, zipCode, distance, cost } = formData;
 
         try {
-            await search(dateFrom, dateTo, zipCode, cost);
+            await search(dateFrom, dateTo, zipCode, distance, cost);
         } catch (err: any) {
             setFormErrors(err);
         }

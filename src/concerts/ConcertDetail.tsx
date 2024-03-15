@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import type { Concert } from "../types";
 import NotFound from "@pages/NotFound";
 import LoadingSpinner from "@layout/LoadingSpinner";
+import { ConcertApi } from "@helpers/api";
 
 /** Component for ConcertDetail
  *
@@ -33,13 +34,13 @@ function ConcertDetail() {
     useEffect(function getConcertOnMount() : void {
         async function getConcert() {
             try {
-                const concertResult = await Api.getConcert(id);
+                const concertResult = await ConcertApi.getConcert(id);
                 setConcertData({concert: concertResult, isLoading: false});
             } catch {
                 setConcertData(c => ({ ...c, isLoading: false }))
             }
         }
-        getConcert()
+        getConcert();
     }, [id]);
 
     if (concertData.isLoading) return <LoadingSpinner />

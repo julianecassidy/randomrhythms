@@ -24,6 +24,7 @@ type SearchDataState = {
     dateFrom: string,
     dateTo: string,
     zipCode: string,
+    distance: string,
     cost: string;
 }
 
@@ -32,7 +33,7 @@ function RandomConcert() {
         {concert: null, isLoading: false}
     )
     const [searchData, setSearchData] = useState<SearchDataState> (
-        {dateFrom: '', dateTo: '', zipCode: '', cost: ''}
+        {dateFrom: '', dateTo: '', zipCode: '', distance: '', cost: ''}
     )
 
     console.debug("RandomConcert", concertData);
@@ -43,17 +44,19 @@ function RandomConcert() {
         dateFrom: string,
         dateTo: string,
         zipCode: string,
+        distance: string,
         cost: string,
     ) {
         setConcertData({concert: null, isLoading: true});
-        setSearchData({ dateFrom, dateTo, zipCode, cost });
+        setSearchData({ dateFrom, dateTo, zipCode, distance, cost });
 
         try {
-            const costAsNum = cost === "" ? undefined : 0;
+            const costAsNum = cost === "" ? undefined : Number(cost);
             const searchResult = await Api.getRandomConcert(
                 dateFrom,
                 dateTo,
                 zipCode,
+                distance,
                 costAsNum,
             );
             setConcertData({concert: searchResult, isLoading: false});
@@ -76,6 +79,7 @@ function RandomConcert() {
                                 searchData.dateFrom,
                                 searchData.dateTo,
                                 searchData.zipCode,
+                                searchData.distance,
                                 searchData.cost)
                         }>Search Again
                         </button>
