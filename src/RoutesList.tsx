@@ -25,8 +25,12 @@ import TermsAndConditions from "@pages/TermsAndConditions";
  */
 
 type RoutesListProps = {
-    signup: (email: string, name: string, password: string, code: string) => void;
-    login: (email: string, password: string, ) => void;
+    signup: (
+        email: string,
+        name: string,
+        password: string,
+        code: string) => Promise<void>;
+    login: (email: string, password: string, ) => Promise<void>;
     currentUser: User | null;
 }
 
