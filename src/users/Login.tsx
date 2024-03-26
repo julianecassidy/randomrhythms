@@ -8,7 +8,12 @@
  *
  * RoutesList -> Login
  */
-function Login() {
+
+type LoginProps = {
+    login: (email: string, password: string, ) => void;
+}
+
+function Login({ login }: LoginProps) {
     console.debug("Login");
 
     return <p>login</p>

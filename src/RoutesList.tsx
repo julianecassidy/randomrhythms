@@ -23,9 +23,9 @@ import NotFound from "./pages/NotFound";
  */
 
 type RoutesListProps = {
-    signup: () => void;
-    login: () => void;
-    currentUser: User;
+    signup: (email: string, name: string, password: string, code: string) => void;
+    login: (email: string, password: string, ) => void;
+    currentUser: User | null;
 }
 
 function RoutesList({ signup, login, currentUser }: RoutesListProps) {

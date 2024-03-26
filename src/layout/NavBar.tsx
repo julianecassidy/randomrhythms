@@ -16,7 +16,7 @@ import React, { MouseEventHandler } from 'react';
  */
 
 type NavBarProps = {
-    currentUser: User;
+    currentUser: User | null;
     logout: MouseEventHandler<HTMLAnchorElement>;
 }
 
