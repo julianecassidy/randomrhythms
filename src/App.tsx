@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import useLocalStorage from "./hooks/useLocalStorage";
-import { BrowserRouter } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import type { User } from "types.ts";
 import { UserApi } from "./helpers/api.ts";
-import NavBar from './layout/NavBar.tsx';
+import NavBar from '@layout/NavBar.tsx';
 import RoutesList from './RoutesList.tsx';
-import Footer from './layout/Footer.tsx';
+import Footer from '@layout/Footer.tsx';
 import './App.css';
 
 /** App for RandomRhythms
@@ -98,10 +97,8 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <NavBar currentUser={currentUser.data} logout={logout} />
-        <RoutesList signup={signup} login={login} currentUser={currentUser.data} />
-      </BrowserRouter>
+      <NavBar currentUser={currentUser.data} logout={logout} />
+      <RoutesList signup={signup} login={login} currentUser={currentUser.data} />
       <Footer />
     </>
   );
