@@ -1,12 +1,14 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import type { User } from "./types";
-import Homepage from "./pages/Homepage";
-import Login from "./users/Login";
-import Signup from "./users/Signup";
-import Concerts from "./concerts/Concerts";
-import ConcertDetail from "./concerts/ConcertDetail";
-import RandomConcert from "./concerts/RandomConcert";
-import NotFound from "./pages/NotFound";
+import Homepage from "@pages/Homepage";
+import Login from "@users/Login";
+import Signup from "@users/Signup";
+import Concerts from "@concerts/Concerts";
+import ConcertDetail from "@concerts/ConcertDetail";
+import RandomConcert from "@concerts/RandomConcert";
+import NotFound from "@pages/NotFound";
+import PrivacyPolicy from "@pages/PrivacyPolicy";
+import TermsAndConditions from "@pages/TermsAndConditions";
 
 /** Component for RoutesList
  *
@@ -48,6 +50,8 @@ function RoutesList({ signup, login, currentUser }: RoutesListProps) {
                 </>
             }
 
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/" element={<Homepage />} />
             <Route path="*" element={<NotFound />} />
         </Routes>

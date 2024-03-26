@@ -18,7 +18,7 @@ function Footer() {
             <Link to="/privacy-policy">Privacy Policy</Link>
             <Link to="/terms-and-conditions">Terms and Conditions</Link>
             <p>
-                Random Rhythms &#169; 2024
+            &#169; 2024 Random Rhythms
                 &#x2022;
                 Built by <Link to="https://julianecassidy.com/">Juliane Cassidy</Link>
             </p>
