@@ -26,7 +26,7 @@ type ConcertDataState = {
 function Concerts() {
 
     const [concertData, setConcertData] = useState<ConcertDataState> (
-        {concerts: [], isLoading: true}
+        {concerts: [], isLoading: false}
     );
     console.debug("Concerts", concertData);
 
@@ -37,6 +37,7 @@ function Concerts() {
         dateFrom: string,
         dateTo: string,
         zipCode:string) : Promise<void> {
+        setConcertData({concerts: [], isLoading: true});
         const searchResults = await ConcertApi.getConcerts(dateFrom, dateTo, zipCode);
         setConcertData({concerts: searchResults, isLoading: false});
     }

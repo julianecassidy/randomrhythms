@@ -47,7 +47,7 @@ function ConcertList({ concerts }: ConcertListProps) {
             <FilterBox filter={filter} />
             {!displayConcerts.length
             ? <div className="ConcertList-no-concerts">
-                No concerts match!
+                Search for concerts. Not seeing any results? Try changing your search.
             </div>
             :<div className="ConcertList-concerts">
                 {displayConcerts.map((c) => <ConcertCard key={c.id} concert={c} />)}
