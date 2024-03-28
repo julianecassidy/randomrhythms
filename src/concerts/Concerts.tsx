@@ -1,10 +1,8 @@
 import { useState } from "react";
 import type { Concert } from "../types";
 import ConcertList from "./ConcertList";
-import FilterBox from "./FilterBox";
 import SearchBox from "./SearchBox";
 import LoadingSpinner from "@layout/LoadingSpinner";
-import filterConcerts from "@helpers/concertFiltering";
 import { ConcertApi } from "@helpers/api";
 
 /** Component for Concerts
@@ -27,13 +25,10 @@ type ConcertDataState = {
 
 function Concerts() {
 
-    // #TODO: need useMemo for the concertData
-
     const [concertData, setConcertData] = useState<ConcertDataState> (
         {concerts: [], isLoading: true}
     );
-    const [displayConcerts, setDisplayConcerts] = useState<Concert[]> ([]);
-    console.debug("Concerts", concertData, displayConcerts);
+    console.debug("Concerts", concertData);
 
     /** Takes a dateFrom, dateTo, and zipCode and updates concertData with
      * matching concerts.
@@ -44,32 +39,15 @@ function Concerts() {
         zipCode:string) : Promise<void> {
         const searchResults = await ConcertApi.getConcerts(dateFrom, dateTo, zipCode);
         setConcertData({concerts: searchResults, isLoading: false});
-        setDisplayConcerts(searchResults);
-    }
-
-    /** Takes optional distance, minCost, and maxCost and updates
-     * displayConcerts. */
-    function filter(distance: string, minCost: string, maxCost: string) {
-        const filteredConcerts = filterConcerts(
-            concertData.concerts,
-            distance,
-            minCost,
-            maxCost,
-        )
-
-        console.log("filteredConcerts", filteredConcerts);
-
-        setDisplayConcerts(filteredConcerts);
     }
 
     return (
         <div className="Concerts">
             <SearchBox search={search} />
-            <FilterBox filter={filter}/>
             {
                 concertData.isLoading
                 ? <LoadingSpinner />
-                : <ConcertList concerts={displayConcerts} />
+                : <ConcertList concerts={concertData.concerts} />
             }
         </div>
     )

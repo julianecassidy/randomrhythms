@@ -8,24 +8,21 @@ function filterConcerts(
   minCost: string,
   maxCost: string) : Array<Concert>{
 
-    console.log("filterConcerts", distance);
-
-
   const distanceNum = distance !== "" ? Number(distance) : undefined;
   const minCostNum = minCost !== "" ? Number(minCost) : undefined;
   const maxCostNum = maxCost !== "" ? Number(maxCost) : undefined;
   let filteredConcerts = concerts;
 
   if (distanceNum) {
-      filteredConcerts = filteredConcerts.filter(c => c.distance < distanceNum);
+    filteredConcerts = filteredConcerts.filter(c => c.venue.distance <= distanceNum);
   }
 
   if (minCostNum) {
-      filteredConcerts = filteredConcerts.filter(c => c.cost >= minCostNum);
+    filteredConcerts = filteredConcerts.filter(c => c.cost >= minCostNum);
   }
 
   if (maxCostNum) {
-      filteredConcerts = filteredConcerts.filter(c => c.cost <= maxCostNum);
+    filteredConcerts = filteredConcerts.filter(c => c.cost <= maxCostNum);
   }
 
   return filteredConcerts;

@@ -23,7 +23,6 @@ export type Concert = {
   ticketUrl: string;
   eventStatus: string;
   eventSource: string;
-  distance: number;
 };
 
 export type Venue = {
@@ -33,6 +32,7 @@ export type Venue = {
   city: string;
   state: string;
   zipCode: string;
+  distance: number;
 };
 
 export type Band = {
