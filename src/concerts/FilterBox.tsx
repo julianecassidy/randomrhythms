@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Alert from "@layout/Alert";
 
 /** Component for FilterBox
  *
@@ -17,22 +18,22 @@ const DEFAULT_DISTANCE = "50";
 
 type FilterBoxProps = {
     filter: (distance: string, minCost: string, maxCost: string) => void;
-}
+};
 
 type FormDataState = {
     distance: string;
     minCost: string;
     maxCost: string;
-}
+};
 
-function FilterBox({ filter } : FilterBoxProps) {
+function FilterBox({ filter }: FilterBoxProps) {
 
     const [formData, setFormData] = useState<FormDataState>({
         distance: DEFAULT_DISTANCE,
         minCost: "0",
         maxCost: "1000",
-    })
-    const [formErrors, setFormErrors ] = useState<Array<string>>([]);
+    });
+    const [formErrors, setFormErrors] = useState<Array<string>>([]);
 
     console.debug("FilterBox", formData);
 
@@ -49,13 +50,13 @@ function FilterBox({ filter } : FilterBoxProps) {
     };
 
     /** Handle form submit. */
-    async function handleSubmit(evt: React.FormEvent) {
-        evt.preventDefault()
+    function handleSubmit(evt: React.FormEvent) {
+        evt.preventDefault();
 
         const { distance, minCost, maxCost } = formData;
 
         try {
-            await filter(distance, minCost, maxCost);
+            filter(distance, minCost, maxCost);
         } catch (err: any) {
             setFormErrors(err);
         }
@@ -63,35 +64,43 @@ function FilterBox({ filter } : FilterBoxProps) {
 
     return (
         <form className="FilterBox" onSubmit={handleSubmit}>
-        <label> Minimum:</label>
-        <input
-            type="number"
-            name="minCost"
-            value={formData.minCost}
-            min={0}
-            max={Number(formData.maxCost) - 1}
-            onChange={handleChange}
-        />
-        <input
-            type="number"
-            name="maxCost"
-            value={formData.maxCost}
-            min={Number(formData.minCost + 1)}
-            max={1000}
-            onChange={handleChange}
-        />
-        <input
-            type="number"
-            name="distance"
-            value={formData.distance}
-            min={0}
-            max={DEFAULT_DISTANCE}
-            onChange={handleChange}
-        />
+            <p>Cost</p>
+            <label htmlFor="minCost">Minimum:</label>
+            <input
+                type="number"
+                name="minCost"
+                value={formData.minCost}
+                min={0}
+                max={Number(formData.maxCost) - 1}
+                onChange={handleChange}
+            />
+            <label htmlFor="maxCost">Maximum:</label>
+            <input
+                type="number"
+                name="maxCost"
+                value={formData.maxCost}
+                min={Number(formData.minCost + 1)}
+                max={1000}
+                onChange={handleChange}
+            />
+            <label htmlFor="distance">Max Distance</label>
+            <input
+                type="number"
+                name="distance"
+                value={formData.distance}
+                min={0}
+                max={DEFAULT_DISTANCE}
+                onChange={handleChange}
+            />
+            <input type="submit" value="Apply" />
 
+            {formErrors.length
+                ? <Alert messages={formErrors} />
+                : null
+            }
 
         </form>
-    )
+    );
 }
 
 export default FilterBox;

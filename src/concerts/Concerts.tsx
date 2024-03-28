@@ -27,11 +27,13 @@ type ConcertDataState = {
 
 function Concerts() {
 
+    // #TODO: need useMemo for the concertData
+
     const [concertData, setConcertData] = useState<ConcertDataState> (
         {concerts: [], isLoading: true}
     );
     const [displayConcerts, setDisplayConcerts] = useState<Concert[]> ([]);
-    console.debug("Concerts", concertData);
+    console.debug("Concerts", concertData, displayConcerts);
 
     /** Takes a dateFrom, dateTo, and zipCode and updates concertData with
      * matching concerts.
@@ -54,6 +56,8 @@ function Concerts() {
             minCost,
             maxCost,
         )
+
+        console.log("filteredConcerts", filteredConcerts);
 
         setDisplayConcerts(filteredConcerts);
     }

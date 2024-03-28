@@ -26,8 +26,8 @@ type FormDataState = {
 function SearchBox({ search }: SearchBoxProps) {
 
     const initialFormData: FormDataState = {
-        dateFrom: new Date().toLocaleDateString(),
-        dateTo: new Date().toLocaleDateString(),
+        dateFrom: new Date().toLocaleDateString('en-CA'),
+        dateTo: new Date().toLocaleDateString('en-CA'),
         zipCode: '',
     };
 
