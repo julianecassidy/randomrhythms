@@ -17,13 +17,15 @@ type ConcertCardProps = {
 };
 
 function ConcertCard({ concert }: ConcertCardProps) {
-    console.debug("ConcertCard");
+    console.debug("ConcertCard", concert);
+
+    concert.dateTime = new Date(concert.dateTime);
 
     return (
         <div className="ConcertCard">
             <Link to={`/concerts/${concert.id}`} >
                 <img
-                    src={concert.headliner.band_image_url}
+                    src={concert.headliner.bandImageUrl}
                     alt={concert.headliner.name}
                 />
                 <h3>{concert.headliner.name}</h3>
@@ -32,7 +34,7 @@ function ConcertCard({ concert }: ConcertCardProps) {
                         return <li key={idx}>{g}</li>
                     })}
                 </ul>
-                {concert.date} {concert.time}
+                {concert.dateTime.toLocaleString()}
                 {concert.venue.name}
                 {concert.cost}
             </Link>

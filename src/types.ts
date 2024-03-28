@@ -16,26 +16,27 @@ export type User = {
 export type Concert = {
   id: string;
   headliner: Band;
-  openers: Array<{ name: string; genres: Array<string> }>;
+  openers: Array<string>;
   venue: Venue;
   cost: number;
-  date: string;
-  time: string;
-  door_time: string;
-  ticket_url: string;
-  event_status: string;
-  event_source: string;
+  dateTime: string | Date;
+  ticketUrl: string;
+  eventStatus: string;
+  eventSource: string;
   distance: number;
 };
 
 export type Venue = {
   name: string;
-  venue_image_url: string;
-  address: string;
+  venueImageUrl: string;
+  streetAddress: string;
+  city: string;
+  state: string;
+  zipCode: string;
 };
 
 export type Band = {
   name: string;
-  band_image_url: string;
+  bandImageUrl: string;
   genres: Array<string>;
 };

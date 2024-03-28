@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Alert from "@layout/Alert";
+import { useNavigate } from "react-router-dom";
 
 /** Component for Login
  *
@@ -13,7 +14,7 @@ import Alert from "@layout/Alert";
  */
 
 type LoginProps = {
-    login: (email: string, password: string, ) => void;
+    login: (email: string, password: string, ) => Promise<void>;
 };
 
 type FormDataState = {
@@ -28,6 +29,7 @@ function Login({ login }: LoginProps) {
         password: "",
     });
     const [formErrors, setFormErrors ] = useState<Array<string>>([]);
+    const navigate = useNavigate();
 
     console.debug("Login", formData, formErrors);
 
@@ -51,7 +53,9 @@ function Login({ login }: LoginProps) {
 
         try {
             await login(email, password);
+            navigate("/concerts");
         } catch (err: any) {
+            console.log("login err", err);
             setFormErrors(err);
         }
     };

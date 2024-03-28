@@ -14,7 +14,7 @@ import Alert from "@layout/Alert";
  */
 
 type SearchBoxProps = {
-    search: (dateFrom: string, dateTo: string, zipCode: string) => void;
+    search: (dateFrom: string, dateTo: string, zipCode: string) => Promise<void>;
 }
 
 type FormDataState = {
@@ -91,11 +91,13 @@ function SearchBox({ search }: SearchBoxProps) {
                 value={formData.zipCode}
                 onChange={handleChange}
             />
-            <input type="submit">Search</input>
+
             {formErrors.length
                 ? <Alert messages={formErrors} />
                 : null
             }
+
+            <input type="submit" value="Search" />
         </form>
     )
 }

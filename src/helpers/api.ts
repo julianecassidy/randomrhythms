@@ -1,6 +1,6 @@
 import type { User, Concert } from "types";
 
-const BACKEND_BASE_URL = "http://localhost:3000/";
+const BACKEND_BASE_URL = "http://localhost:3000";
 
 interface Token {
   id: number;
@@ -38,7 +38,7 @@ class UserApi {
     if (!resp.ok) {
       console.error("API Error:", resp.statusText, resp.status);
       const { error } = await resp.json();
-      throw Array.isArray(error) ? error : [error];
+      throw Array.isArray(error.message) ? error.message : [error.message];
     }
 
     return await resp.json();
@@ -52,11 +52,10 @@ class UserApi {
     email: string,
     password: string,
     name: string,
-    code: string) : Promise<string> {
-      const userData = { email, password, name, code };
+    signupCode: string) : Promise<string> {
+      const userData = { email, password, name, signupCode };
 
-      const token = await this.request("auth/register", userData, "POST");
-      UserApi.token = token;
+      const { token } = await this.request("auth/register", userData, "POST");
 
       return token;
     }
@@ -69,16 +68,8 @@ class UserApi {
     email: string,
     password: string) : Promise<string> {
       const userData = { email, password };
-
-      const token = await this.request("auth/login", userData, "POST");
-      UserApi.token = token;
-
+      const { token } = await this.request("auth/login", userData, "POST");
       return token;
-    }
-
-    /** Remove token from class. */
-    static logout() {
-      UserApi.token = undefined;
     }
 }
 

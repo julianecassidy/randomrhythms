@@ -14,7 +14,7 @@ type AlertsProps = {
 }
 
 function Alert({ messages}: AlertsProps) {
-    console.debug("Alert");
+    console.debug("Alert", messages);
 
     return (
         <div className="Alert" role="alert">

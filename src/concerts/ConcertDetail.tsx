@@ -35,6 +35,7 @@ function ConcertDetail() {
         async function getConcert() {
             try {
                 const concertResult = await ConcertApi.getConcert(id);
+                concertResult.dateTime = new Date(concertResult.dateTime);
                 setConcertData({concert: concertResult, isLoading: false});
             } catch {
                 setConcertData(c => ({ ...c, isLoading: false }))
@@ -49,21 +50,27 @@ function ConcertDetail() {
     return (
         <div className="ConcertDetail">
             <img
-                    src={concertData.concert?.headliner.band_image_url}
+                    src={concertData.concert?.headliner.bandImageUrl}
                     alt={concertData.concert?.headliner.name}
                 />
                 <h3>{concertData.concert?.headliner.name}</h3>
+                <h4>{concertData.concert?.dateTime.toLocaleString()}</h4>
                 Openers:
                 <ul>
-                    {concertData.concert?.openers.map((o, idx) => {
-                        return <li key={idx}>{o.name}</li>
-                    })}
+                    {concertData.concert?.openers.map((o, idx) =>
+                        <li key={idx}>{o}</li>
+                    )}
                 </ul>
-                {concertData.concert?.date} {concertData.concert?.time}
                 {concertData.concert?.venue.name}
-                {concertData.concert?.venue.address}
-                {concertData.concert?.cost}
-                Doors at: {concertData.concert?.door_time}
+                {concertData.concert?.venue.streetAddress}
+                {concertData.concert?.venue.city},
+                {concertData.concert?.venue.state}
+                {concertData.concert?.venue.zipCode}
+                Cost:
+                {(concertData.concert?.cost)
+                ? concertData.concert?.cost
+                : "Check below for pricing."}
+                <button><a href={concertData.concert?.ticketUrl}>Buy Tickets!</a></button>
         </div>
     )
 }

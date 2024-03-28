@@ -44,6 +44,7 @@ function App() {
         if (token) {
           try {
             const user: User = jwtDecode(token);
+            UserApi.token = token;
 
             setCurrentUser({
               isLoaded: true,
@@ -75,19 +76,18 @@ function App() {
     name: string,
     password: string,
     code: string) : Promise<void> {
-     const token = await UserApi.register(email, name, password, code);
-     setToken(token);
+     const tokenFromApi = await UserApi.register(email, name, password, code);
+     setToken(tokenFromApi);
   }
 
   /** login: handle site-wide login. Takes email and password.  */
   async function login(email: string, password: string) : Promise<void> {
-    const token = await UserApi.login(email, password);
-    setToken(token);
+    const tokenFromApi = await UserApi.login(email, password);
+    setToken(tokenFromApi);
   }
 
   /** logout: handle site-wide logout. */
   function logout() {
-    UserApi.logout();
     setCurrentUser({
       isLoaded: true,
       data: null

@@ -64,8 +64,8 @@ function Concerts() {
             <FilterBox filter={filter}/>
             {
                 concertData.isLoading
-                ? <ConcertList concerts={displayConcerts} />
-                : <LoadingSpinner />
+                ? <LoadingSpinner />
+                : <ConcertList concerts={displayConcerts} />
             }
         </div>
     )

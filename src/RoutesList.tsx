@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import type { User } from "./types";
 import Homepage from "@pages/Homepage";
 import Login from "@users/Login";
@@ -43,6 +43,9 @@ function RoutesList({ signup, login, currentUser }: RoutesListProps) {
                 <>
                     <Route path="/login" element={<Login login={login} />} />
                     <Route path="/signup" element={<Signup signup={signup} />} />
+                    <Route path="/concerts" element={<Navigate to="/signup" />} />
+                    <Route path="/concerts/:id" element={<Navigate to="/signup" />} />
+                    <Route path="/random" element={<Navigate to="/signup" />} />
                 </>
             }
 
@@ -51,6 +54,8 @@ function RoutesList({ signup, login, currentUser }: RoutesListProps) {
                     <Route path="/concerts" element={<Concerts />} />
                     <Route path="/concerts/:id" element={<ConcertDetail />} />
                     <Route path="/random" element={<RandomConcert />} />
+                    <Route path="/login" element={<Navigate to="/concerts" />} />
+                    <Route path="/signup" element={<Navigate to="/concerts" />} />
                 </>
             }
 

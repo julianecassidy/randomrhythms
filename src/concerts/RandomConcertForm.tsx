@@ -35,7 +35,7 @@ type FormDataState = {
     zipCode: string;
     distance: string;
     cost: string;
-}
+};
 
 function RandomConcertForm({ initialFormData, search }: RandomConcertFormProps) {
 
@@ -107,11 +107,13 @@ function RandomConcertForm({ initialFormData, search }: RandomConcertFormProps) 
             value={formData.cost}
             onChange={handleChange}
         />
-        <input type="submit">Search</input>
+
         {formErrors.length
-            ? <Alert messages={formErrors} />
-            : null
-        }
+                ? <Alert messages={formErrors} />
+                : null
+            }
+
+        <input type="submit" value="Search" />
     </form>
     )
 }
