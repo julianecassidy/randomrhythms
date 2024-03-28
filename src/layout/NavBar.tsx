@@ -37,8 +37,7 @@ function NavBar({ currentUser, logout }: NavBarProps) {
             {currentUser &&
                 <>
                     <NavLink to="/concerts" >Concerts</NavLink>
-                    <NavLink to="/random" >Concerts</NavLink>
-                    <NavLink to="/concerts" >Concerts</NavLink>
+                    <NavLink to="/random" >Get a Random Concert</NavLink>
                     <Link to="/" onClick={logout}>
                         {`Logout ${currentUser.name}`}
                     </Link>
