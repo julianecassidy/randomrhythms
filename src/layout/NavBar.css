@@ -1,0 +1,11 @@
+.NavBar {
+  @apply flex w-full items-center;
+}
+
+#NavBar-logo {
+  @apply w-1/3 sm:w-1/6 ml-4;
+}
+
+#NavBar-menu {
+  @apply flex justify-end gap-3 w-10/12 mr-4;
+}

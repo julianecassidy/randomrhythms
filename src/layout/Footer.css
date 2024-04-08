@@ -1,0 +1,7 @@
+.Footer {
+  @apply w-full py-4 text-center text-[#fbfffe] bg-[#160c28];
+}
+
+.Footer a {
+  @apply text-primary hover:text-secondary;
+}

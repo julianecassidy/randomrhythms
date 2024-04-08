@@ -1,7 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '/8thNote.svg';
 import { User } from '../types';
-import React, { MouseEventHandler } from 'react';
+import { MouseEventHandler } from 'react';
+import "@layout/NavBar.css";
 
 /** Component for NavBar
  *
@@ -25,24 +26,26 @@ function NavBar({ currentUser, logout }: NavBarProps) {
 
     return (
         <div className="NavBar">
-            <div className="NavBar-logo">
+            <div id="NavBar-logo">
                 <img src={logo} />
             </div>
-            {!currentUser &&
-                <>
-                    <NavLink to="/signup">Signup</NavLink>
-                    <NavLink to="/login">Login</NavLink>
-                </>}
+            <nav id="NavBar-menu">
+                {!currentUser &&
+                    <>
+                        <NavLink to="/signup">Signup</NavLink>
+                        <NavLink to="/login">Login</NavLink>
+                    </>}
 
-            {currentUser &&
-                <>
-                    <NavLink to="/concerts" >Concerts</NavLink>
-                    <NavLink to="/random" >Get a Random Concert</NavLink>
-                    <Link to="/" onClick={logout}>
-                        {`Logout ${currentUser.name}`}
-                    </Link>
-                </>
-            }
+                {currentUser &&
+                    <>
+                        <NavLink to="/concerts" >Concerts</NavLink>
+                        <NavLink to="/random" >Random Concert</NavLink>
+                        <Link to="/" onClick={logout}>
+                            {`Logout ${currentUser.name}`}
+                        </Link>
+                    </>
+                }
+            </nav>
         </div>
     );
 }
