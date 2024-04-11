@@ -6,7 +6,6 @@ import { UserApi } from "./helpers/api.ts";
 import NavBar from '@layout/NavBar.tsx';
 import RoutesList from './RoutesList.tsx';
 import Footer from '@layout/Footer.tsx';
-import './App.css';
 
 /** App for RandomRhythms
  *

@@ -3,26 +3,27 @@
 @tailwind utilities;
 
 @layer base {
-  :root,
+  /* :root,
   html[data-theme="light"] {
     --color-primary: 216, 17, 89;
     --color-secondary: 143, 45, 86;
     --color-accent: 254, 153, 32;
     --color-fill: 251, 255, 254;
-    --color-base: 22, 12, 40;
+    --color-current: 22, 12, 40;
   }
   html[data-theme="dark"] {
     --color-primary: 216, 17, 89;
     --color-secondary:  143, 45, 86;
     --color-accent: 254, 153, 32;
     --color-fill: 22, 12, 40;
-    --color-base: 251, 255, 254;
-  }
+    --color-current: 251, 255, 254;
+  } */
+
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply flex min-h-[100svh] flex-col bg-fill text-base
+    @apply flex min-h-[100svh] flex-col bg-neutral text-base text-base-100
     selection:bg-secondary selection:bg-opacity-70;
   }
 

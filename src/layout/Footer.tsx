@@ -15,7 +15,7 @@ function Footer() {
     console.debug("Footer")
 
     return (
-        <div className="Footer">
+        <footer>
             <Link to="/privacy-policy">Privacy Policy </Link>
             &#x2022;
             <Link to="/terms-and-conditions"> Terms and Conditions</Link>
@@ -25,7 +25,7 @@ function Footer() {
                 <Link to="https://julianecassidy.com/"> Juliane Cassidy
                 </Link>, Software Engineer
             </p>
-        </div>
+        </footer>
     )
 }
 

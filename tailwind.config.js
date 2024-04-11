@@ -13,17 +13,37 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {
-      colors: {
-        primary: withOpacity("--color-primary"),
-        secondary: withOpacity("--color-secondary"),
-        accent: withOpacity("--color-accent"),
-        fill: withOpacity("--color-fill"),
-        base: withOpacity("--color-base"),
+  plugins: [require("daisyui"), require('@tailwindcss/typography')],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          "primary": "#D81159",
+          "primary-content": "#FBFFFE",
+          "secondary": "#8F2D56",
+          "accent": "#FE9920",
+          "neutral": "#FBFFFE",
+          "base-100": "#160C28",
+        },
       },
-    },
+      {
+        dark: {
+          "primary": "#D81159",
+          "primary-content": "#FBFFFE",
+          "secondary": "#8F2D56",
+          "accent": "#FE9920",
+          "neutral": "#160C28",
+          "base-100": "#FBFFFE",
+        },
+      },
+    ], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+    darkTheme: "dark", // name of one of the included themes for dark mode
+    base: true, // applies background color and foreground color for root element by default
+    styled: true, // include daisyUI colors and design decisions for all components
+    utils: true, // adds responsive and modifier utility classes
+    prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+    logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
+    themeRoot: ":root", // The element that receives theme color CSS variables
   },
-  plugins: [],
 }
 
