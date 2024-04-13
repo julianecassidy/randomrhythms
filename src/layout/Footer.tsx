@@ -12,7 +12,7 @@ import "@layout/Footer.css";
  * App -> Footer
  */
 function Footer() {
-    console.debug("Footer")
+    // console.debug("Footer")
 
     return (
         <footer>
@@ -20,10 +20,8 @@ function Footer() {
             &#x2022;
             <Link to="/terms-and-conditions"> Terms and Conditions</Link>
             <p>
-                &#169; 2024 Random Rhythms
-                &#x2022;
-                <Link to="https://julianecassidy.com/"> Juliane Cassidy
-                </Link>, Software Engineer
+                &#169; 2024 Random Rhythms /
+                <Link to="https://julianecassidy.com/"> Juliane Cassidy</Link>
             </p>
         </footer>
     )

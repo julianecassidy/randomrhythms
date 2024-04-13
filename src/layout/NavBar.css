@@ -11,9 +11,25 @@
 }
 
 #NavBar-menu a {
-  @apply text-base-100 transition ease-in duration-100 hover:text-primary;
+  @apply font-sans text-3xl text-base-100 relative
+  before:content-[''] before:absolute before:block before:w-full before:h-[2px]
+  before:bottom-0 before:left-0 before:bg-primary
+  before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+  before:transition before:ease-in-out before:duration-300;
 }
 
 #NavBar-menu a.active {
+  @apply underline decoration-primary decoration-2 underline-offset-[12px];
+}
+
+#NavBar-mobile-menu a {
+  @apply text-[#FBFFFE] transition ease-in duration-100 hover:text-primary;
+}
+
+#NavBar-mobile-menu a.active {
   @apply text-primary;
+}
+
+#NavBar-mobile-menu li {
+  @apply py-2 text-lg;
 }

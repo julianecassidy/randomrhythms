@@ -13,7 +13,18 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  plugins: [require("daisyui"), require('@tailwindcss/typography')],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['"Zen Loop"', "Arial", "sans-serif"],
+        serif: ["Merriweather", "Georgia", "serif"],
+        display: ['"Reenie Beanie"', "cursive"],
+        body: ['Raleway', 'Arial', 'sans-serif'],
+        mono: ["IBM Plex Mono", "monospace"],
+      },
+    },
+  },
+  plugins: [require('@tailwindcss/typography'), require("daisyui")],
   daisyui: {
     themes: [
       {

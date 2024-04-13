@@ -1,5 +1,5 @@
 footer {
-  @apply w-full py-4 text-center text-[#fbfffe] bg-[#160c28];
+  @apply w-full py-4 text-center text-[#fbfffe] bg-[#160c28] absolute bottom-0;
 }
 
 footer a {

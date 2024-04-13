@@ -43,7 +43,7 @@ function RoutesList({ signup, login, currentUser }: RoutesListProps) {
                 <>
                     <Route path="/login" element={<Login login={login} />} />
                     <Route path="/signup" element={<Signup signup={signup} />} />
-                    <Route path="/concerts" element={<Navigate to="/signup" />} />
+                    <Route path="/" element={<Navigate to="/signup" />} />
                     <Route path="/concerts/:id" element={<Navigate to="/signup" />} />
                     <Route path="/random" element={<Navigate to="/signup" />} />
                 </>
@@ -51,7 +51,7 @@ function RoutesList({ signup, login, currentUser }: RoutesListProps) {
 
             {currentUser &&
                 <>
-                    <Route path="/concerts" element={<Concerts />} />
+                    <Route path="/" element={<Concerts />} />
                     <Route path="/concerts/:id" element={<ConcertDetail />} />
                     <Route path="/random" element={<RandomConcert />} />
                     <Route path="/login" element={<Navigate to="/concerts" />} />
@@ -61,7 +61,6 @@ function RoutesList({ signup, login, currentUser }: RoutesListProps) {
 
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-            <Route path="/" element={<Homepage />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );
