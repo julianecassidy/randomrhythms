@@ -53,7 +53,7 @@ function Login({ login }: LoginProps) {
 
         try {
             await login(email, password);
-            navigate("/concerts");
+            navigate("/");
         } catch (err: any) {
             console.log("login err", err);
             setFormErrors(err);

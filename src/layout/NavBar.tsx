@@ -40,7 +40,7 @@ function NavBar({ currentUser, logout }: NavBarProps) {
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
                 <div className="w-full navbar bg-fill">
-                    <div id="NavBar-logo" className="flex-1 px-2 mx-2">
+                    <div id="NavBar-logo" className="flex-1">
                         <Link to="/">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +117,7 @@ function NavBar({ currentUser, logout }: NavBarProps) {
 
                     {currentUser &&
                         <>
-                            <li><NavLink to="/concerts" >Concerts</NavLink></li>
+                            <li><NavLink to="/" >Concerts</NavLink></li>
                             <li><NavLink to="/random" >Random Concert</NavLink></li>
                             <li><Link to="/" onClick={logout}>Logout</Link></li>
                         </>

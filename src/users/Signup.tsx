@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Alert from "@layout/Alert";
 
 /** Component for Signup
@@ -37,6 +38,7 @@ function Signup({ signup }: SignupProps) {
         code: "",
     });
     const [formErrors, setFormErrors ] = useState<Array<string>>([]);
+    const navigate = useNavigate();
 
     console.debug("Signup", formData, formErrors);
 
@@ -60,6 +62,7 @@ function Signup({ signup }: SignupProps) {
 
         try {
             await signup(email, password, name, code);
+            navigate("/");
         } catch (err: any) {
             setFormErrors(err);
         }

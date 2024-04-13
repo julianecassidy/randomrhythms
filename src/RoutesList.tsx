@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import type { User } from "./types";
-import Homepage from "@pages/Homepage";
 import Login from "@users/Login";
 import Signup from "@users/Signup";
 import Concerts from "@concerts/Concerts";
@@ -54,8 +53,8 @@ function RoutesList({ signup, login, currentUser }: RoutesListProps) {
                     <Route path="/" element={<Concerts />} />
                     <Route path="/concerts/:id" element={<ConcertDetail />} />
                     <Route path="/random" element={<RandomConcert />} />
-                    <Route path="/login" element={<Navigate to="/concerts" />} />
-                    <Route path="/signup" element={<Navigate to="/concerts" />} />
+                    <Route path="/login" element={<Navigate to="/" />} />
+                    <Route path="/signup" element={<Navigate to="/" />} />
                 </>
             }
 

@@ -4,6 +4,7 @@ import ConcertList from "./ConcertList";
 import SearchBox from "./SearchBox";
 import LoadingSpinner from "@layout/LoadingSpinner";
 import { ConcertApi } from "@helpers/api";
+import "./Concerts.css";
 
 /** Component for Concerts
  *
@@ -43,7 +44,7 @@ function Concerts() {
     }
 
     return (
-        <div className="Concerts">
+        <div id="Concerts">
             <SearchBox search={search} />
             {
                 concertData.isLoading
