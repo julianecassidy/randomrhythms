@@ -74,8 +74,8 @@ function App() {
     email: string,
     name: string,
     password: string,
-    code: string) : Promise<void> {
-     const tokenFromApi = await UserApi.register(email, name, password, code);
+  ) : Promise<void> {
+     const tokenFromApi = await UserApi.register(email, name, password);
      setToken(tokenFromApi);
   }
 

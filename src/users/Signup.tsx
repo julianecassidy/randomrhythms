@@ -19,7 +19,7 @@ type SignupProps = {
         email: string,
         name: string,
         password: string,
-        code: string) => Promise<void>;
+    ) => Promise<void>;
 };
 
 type FormDataState = {
@@ -58,10 +58,10 @@ function Signup({ signup }: SignupProps) {
     async function handleSubmit(evt: React.FormEvent) {
         evt.preventDefault();
 
-        const { email, password, name, code } = formData;
+        const { email, password, name } = formData;
 
         try {
-            await signup(email, password, name, code);
+            await signup(email, password, name);
             navigate("/");
         } catch (err: any) {
             setFormErrors(err);
