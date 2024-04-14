@@ -7,7 +7,7 @@ import ConcertDetail from "@concerts/ConcertDetail";
 import RandomConcert from "@concerts/RandomConcert";
 import NotFound from "@pages/NotFound";
 import PrivacyPolicy from "@pages/PrivacyPolicy";
-import TermsAndConditions from "@pages/TermsAndConditions";
+import AccessibilityStatement from "@pages/AccessibilityStatement";
 
 /** Component for RoutesList
  *
@@ -59,7 +59,7 @@ function RoutesList({ signup, login, currentUser }: RoutesListProps) {
             }
 
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="/accessibility-statement" element={<AccessibilityStatement />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

@@ -18,7 +18,7 @@ function Footer() {
         <footer>
             <Link to="/privacy-policy">Privacy Policy </Link>
             &#x2022;
-            <Link to="/terms-and-conditions"> Terms and Conditions</Link>
+            <Link to="/accessibility-statement"> Accessibility Statement</Link>
             <p>
                 &#169; 2024 Random Rhythms /
                 <Link to="https://julianecassidy.com/"> Juliane Cassidy</Link>
