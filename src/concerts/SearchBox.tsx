@@ -69,7 +69,8 @@ function SearchBox({ search }: SearchBoxProps) {
     return (
         <div
             id="SearchBox"
-            className="bg-base-200 border-[#FBFFFE] border-2 rounded-xl px-8 lg:px-0 pt-4 pb-8"
+            className="bg-base-200 border-[#FBFFFE] border-2 rounded-xl px-8
+            lg:px-0 pt-4 pb-8"
         >
             <h2 className="pl-2 sm:pl-8">
                 Find your next concert.

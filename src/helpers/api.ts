@@ -144,13 +144,13 @@ class ConcertApi {
     dateFrom: string,
     dateTo: string,
     zipCode: string,
-    cost: string,
-    distance: string) : Promise<Concert> {
+    price: string,
+    geoRadius: string) : Promise<Concert> {
     const res = await this.request(
       "concerts/random",
-      { dateFrom, dateTo, zipCode, cost, distance }
+      { dateFrom, dateTo, zipCode, price, geoRadius }
     );
-    return res.concert;
+    return res.randomConcert;
   }
 
   /** Makes an API request at /concerts/:id to get a concert.
