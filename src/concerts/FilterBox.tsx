@@ -80,7 +80,7 @@ function FilterBox({ filter }: FilterBoxProps) {
                     type="range"
                     value={formData.maxCost}
                     min="0"
-                    max="1000"
+                    max="200"
                     step="5"
                     className="range range-accent"
                     onChange={handleChange}

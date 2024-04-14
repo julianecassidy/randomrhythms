@@ -19,7 +19,7 @@ export type Concert = {
   openers: Array<string>;
   venue: Venue;
   cost: number;
-  dateTime: string | Date;
+  dateTime: Date;
   ticketUrl: string;
   eventStatus: string;
   eventSource: string;

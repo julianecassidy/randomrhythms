@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Concert } from "../types";
+import formatDate from "@helpers/formatDate";
 
 /** Component for ConcertCard
  *
@@ -22,11 +23,12 @@ function ConcertCard({ concert }: ConcertCardProps) {
     concert.dateTime = new Date(concert.dateTime);
 
     return (
-        <div className="ConcertCard">
+        <div className="ConcertCard group">
             <Link to={`/concerts/${concert.id}`} >
                 <div
-                    className="ConcertCard card w-96 sm:w-80 lg:w-96 h-[450px]
-                    bg-neutral shadow-xl"
+                    className="ConcertCard card w-96 max-h-[450px]
+                    bg-neutral shadow-xl transition duration-200 ease-in
+                    md:group-hover:scale-105"
                 >
                     <figure>
                         <img
@@ -38,18 +40,25 @@ function ConcertCard({ concert }: ConcertCardProps) {
                         <h3 className="card-title text-3xl">
                             {concert.headliner.name}
                         </h3>
-                        <p>{concert.dateTime.toLocaleString()}</p>
-                        <p>{concert.venue.name}</p>
+                        <p><b>{formatDate(concert.dateTime)}</b></p>
+                        <p><b>{concert.venue.name}</b><br></br>
+                        {`${concert.venue.city}, ${concert.venue.state}`}</p>
                         <div
                             className="ConcertCard card-actions flex flex-nowrap
                             items-center"
                         >
-                            <div className="ConcertCard-cost w-1/3">
-                                {concert.cost &&
-                                <div className="badge badge-secondary badge-lg">
-                                    ${concert.cost}
-                                </div>
-                                }
+                            <div className="ConcertCard-cost w-1/3 badge
+                                badge-secondary badge-lg">
+                                <a
+                                    href={concert.ticketUrl}
+                                    aria-label={
+                                        `Visit ticket merchant for ${concert.headliner.name}`
+                                    }>
+                                    {concert.cost
+                                        ? concert.cost
+                                        : <small>Get price</small>
+                                    }
+                                </a>
                             </div>
                             <div
                                 className="ConcertCard-genres w-2/3 flex

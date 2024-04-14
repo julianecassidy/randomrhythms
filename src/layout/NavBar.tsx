@@ -7,7 +7,7 @@ import "@layout/NavBar.css";
 /** Component for NavBar
  *
  * Props:
- * - neutralUser: { id, email, name }
+ * - currentUser: { id, email, name }
  * - logout()
  *
  * State:
@@ -17,11 +17,11 @@ import "@layout/NavBar.css";
  */
 
 type NavBarProps = {
-    neutralUser: User | null;
+    currentUser: User | null;
     logout: MouseEventHandler<HTMLAnchorElement>;
 };
 
-function NavBar({ neutralUser, logout }: NavBarProps) {
+function NavBar({ currentUser, logout }: NavBarProps) {
     console.debug("NavBar");
 
     const [theme, setTheme] = useState('light');
@@ -59,7 +59,7 @@ function NavBar({ neutralUser, logout }: NavBarProps) {
                     </div>
                     <div className="flex-none hidden lg:block">
                         <nav id="NavBar-menu">
-                            {!neutralUser &&
+                            {!currentUser &&
                                 <>
                                     <NavLink to="/signup" className={({ isActive }) =>
                                         isActive ? "active" : ""}>Signup</NavLink>
@@ -67,7 +67,7 @@ function NavBar({ neutralUser, logout }: NavBarProps) {
                                         isActive ? "active" : ""}>Login</NavLink>
                                 </>}
 
-                            {neutralUser &&
+                            {currentUser &&
                                 <>
                                     <NavLink to="/" className={({ isActive }) =>
                                         isActive ? "active" : ""}>Concerts</NavLink>
@@ -109,13 +109,13 @@ function NavBar({ neutralUser, logout }: NavBarProps) {
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-64 min-h-full bg-[#160C28]">
                     {/* Sidebar content here */}
-                    {!neutralUser &&
+                    {!currentUser &&
                         <>
                             <li><NavLink to="/signup">Signup</NavLink></li>
                             <li><NavLink to="/login">Login</NavLink></li>
                         </>}
 
-                    {neutralUser &&
+                    {currentUser &&
                         <>
                             <li><NavLink to="/" >Concerts</NavLink></li>
                             <li><NavLink to="/random" >Random Concert</NavLink></li>
