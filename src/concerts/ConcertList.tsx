@@ -49,7 +49,7 @@ function ConcertList({ concerts }: ConcertListProps) {
             </div>
             {!displayConcerts.length
             ? <div className="ConcertList-no-concerts mx-8">
-                Search for concerts. Not seeing any results? Try changing your search.
+                Not seeing any results? Try changing the search or updating the filters.
             </div>
             :<div
                 className="ConcertList-concerts mt-8 lg:mt-0 mx-8 flex flex-wrap

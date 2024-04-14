@@ -1,6 +1,8 @@
-import type { User, Concert } from "types";
+import type { Concert } from "types";
 
-const BACKEND_BASE_URL = "http://localhost:3000";
+const BACKEND_BASE_URL = import.meta.env.PROD
+  ? import.meta.env.API_URL
+  : "http://localhost:3000";
 
 interface Token {
   id: number;
@@ -52,8 +54,8 @@ class UserApi {
     email: string,
     password: string,
     name: string,
-    signupCode: string) : Promise<string> {
-      const userData = { email, password, name, signupCode };
+  ) : Promise<string> {
+      const userData = { email, password, name, signupCode: "born to run" };
 
       const { token } = await this.request("auth/register", userData, "POST");
 

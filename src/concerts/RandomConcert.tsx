@@ -112,7 +112,7 @@ function RandomConcert() {
     }
 
     return (
-        <div id="RandomConcert" className="bg-neutral py-8 px-4 sm:px-8">
+        <div id="RandomConcert" className="bg-neutral mb-16 py-8 px-4 sm:px-8">
             <RandomConcertForm
                 initialFormData={searchData}
                 search={getRandomConcert}

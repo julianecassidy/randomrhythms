@@ -43,7 +43,7 @@ function Concerts() {
     }
 
     return (
-        <div id="Concerts" className="bg-neutral py-8 px-4 sm:px-8">
+        <div id="Concerts" className="bg-neutral mb-32 py-8 px-4 sm:px-8">
             <SearchBox search={search} />
             {
                 concertData.isLoading

@@ -1,5 +1,4 @@
 import { Link, NavLink } from 'react-router-dom';
-import logo from '/8thNote.svg';
 import { User } from '../types';
 import { MouseEventHandler, useState, useEffect } from 'react';
 import "@layout/NavBar.css";
@@ -28,6 +27,8 @@ function NavBar({ currentUser, logout }: NavBarProps) {
     const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
     };
+
+    const [sidebar, setSidebar] = useState()
 
     // initially set the theme and "listen" for changes to apply them to the HTML tag
     useEffect(() => {
