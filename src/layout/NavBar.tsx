@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { User } from '../types';
 import { MouseEventHandler, useState, useEffect } from 'react';
+import useLocalStorage from "../hooks/useLocalStorage";
 import "@layout/NavBar.css";
 
 /** Component for NavBar
@@ -15,6 +16,9 @@ import "@layout/NavBar.css";
  * App -> NavBar
  */
 
+// Key name for storing token in localStorage for "remember me" re-login
+export const THEME_STORAGE_ID = "theme";
+
 type NavBarProps = {
     currentUser: User | null;
     logout: MouseEventHandler<HTMLAnchorElement>;
@@ -23,16 +27,14 @@ type NavBarProps = {
 function NavBar({ currentUser, logout }: NavBarProps) {
     console.debug("NavBar");
 
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useLocalStorage(THEME_STORAGE_ID, "light");
     const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
     };
 
-    const [sidebar, setSidebar] = useState()
-
     // initially set the theme and "listen" for changes to apply them to the HTML tag
     useEffect(() => {
-        document.querySelector('html')?.setAttribute('data-theme', theme);
+        document.querySelector('html')?.setAttribute('data-theme', theme || "light");
     }, [theme]);
 
     return (
