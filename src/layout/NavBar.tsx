@@ -7,7 +7,7 @@ import "@layout/NavBar.css";
 /** Component for NavBar
  *
  * Props:
- * - currentUser: { id, email, name }
+ * - neutralUser: { id, email, name }
  * - logout()
  *
  * State:
@@ -17,11 +17,11 @@ import "@layout/NavBar.css";
  */
 
 type NavBarProps = {
-    currentUser: User | null;
+    neutralUser: User | null;
     logout: MouseEventHandler<HTMLAnchorElement>;
 };
 
-function NavBar({ currentUser, logout }: NavBarProps) {
+function NavBar({ neutralUser, logout }: NavBarProps) {
     console.debug("NavBar");
 
     const [theme, setTheme] = useState('light');
@@ -39,7 +39,7 @@ function NavBar({ currentUser, logout }: NavBarProps) {
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
-                <div className="w-full navbar bg-fill">
+                <div className="w-full navbar bg-base-200">
                     <div id="NavBar-logo" className="flex-1">
                         <Link to="/">
                             <svg
@@ -59,7 +59,7 @@ function NavBar({ currentUser, logout }: NavBarProps) {
                     </div>
                     <div className="flex-none hidden lg:block">
                         <nav id="NavBar-menu">
-                            {!currentUser &&
+                            {!neutralUser &&
                                 <>
                                     <NavLink to="/signup" className={({ isActive }) =>
                                         isActive ? "active" : ""}>Signup</NavLink>
@@ -67,7 +67,7 @@ function NavBar({ currentUser, logout }: NavBarProps) {
                                         isActive ? "active" : ""}>Login</NavLink>
                                 </>}
 
-                            {currentUser &&
+                            {neutralUser &&
                                 <>
                                     <NavLink to="/" className={({ isActive }) =>
                                         isActive ? "active" : ""}>Concerts</NavLink>
@@ -96,10 +96,10 @@ function NavBar({ currentUser, logout }: NavBarProps) {
                             <input type="checkbox" />
 
                             {/* hamburger icon */}
-                            <svg className="swap-off fill-current [:checked~*_&]:!-rotate-45 [:checked~*_&]:!opacity-0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" /></svg>
+                            <svg className="swap-off fill-primary [:checked~*_&]:!-rotate-45 [:checked~*_&]:!opacity-0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" /></svg>
 
                             {/* close icon */}
-                            <svg className="swap-on fill-current [:checked~*_&]:!rotate-0 [:checked~*_&]:!opacity-100" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" /></svg>
+                            <svg className="swap-on fill-primary [:checked~*_&]:!rotate-0 [:checked~*_&]:!opacity-100" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" /></svg>
 
                         </label>
                     </div>
@@ -109,13 +109,13 @@ function NavBar({ currentUser, logout }: NavBarProps) {
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-64 min-h-full bg-[#160C28]">
                     {/* Sidebar content here */}
-                    {!currentUser &&
+                    {!neutralUser &&
                         <>
                             <li><NavLink to="/signup">Signup</NavLink></li>
                             <li><NavLink to="/login">Login</NavLink></li>
                         </>}
 
-                    {currentUser &&
+                    {neutralUser &&
                         <>
                             <li><NavLink to="/" >Concerts</NavLink></li>
                             <li><NavLink to="/random" >Random Concert</NavLink></li>

@@ -63,43 +63,56 @@ function FilterBox({ filter }: FilterBoxProps) {
     };
 
     return (
-        <form className="FilterBox" onSubmit={handleSubmit}>
-            <p>Cost</p>
-            <label htmlFor="minCost">Minimum:</label>
-            <input
-                type="number"
-                name="minCost"
-                value={formData.minCost}
-                min={0}
-                max={Number(formData.maxCost) - 1}
-                onChange={handleChange}
-            />
-            <label htmlFor="maxCost">Maximum:</label>
-            <input
-                type="number"
-                name="maxCost"
-                value={formData.maxCost}
-                min={Number(formData.minCost + 1)}
-                max={1000}
-                onChange={handleChange}
-            />
-            <label htmlFor="distance">Max Distance</label>
-            <input
-                type="number"
-                name="distance"
-                value={formData.distance}
-                min={0}
-                max={DEFAULT_DISTANCE}
-                onChange={handleChange}
-            />
-            <input type="submit" value="Apply" />
+        <div
+            className="bg-base-200 border-[#FBFFFE] border-2 rounded-xl px-8
+            lg:px-4 pt-4 pb-8"
+        >
+            <h3 className="text-center">Filter Concerts</h3>
+            <form
+                className="FilterBox-form flex flex-wrap justify-start gap-4
+                sm:gap-4 w-full"
+                onSubmit={handleSubmit}
+            >
+                <label htmlFor="cost" className="w-full"><b>Cost</b></label>
+                <small className="-mt-3">{`$0 to $${formData.maxCost}`}</small>
+                <input
+                    name="maxCost"
+                    type="range"
+                    value={formData.maxCost}
+                    min="0"
+                    max="1000"
+                    step="5"
+                    className="range range-accent"
+                    onChange={handleChange}
+                />
+                <label htmlFor="distance" className="mt-4 w-full">
+                    <b>Distance</b>
+                </label>
+                <small className="-mt-3">{`0 mi to ${formData.distance} mi`}</small>
+                <input
+                    name="distance"
+                    type="range"
+                    value={formData.distance}
+                    min="0"
+                    max={DEFAULT_DISTANCE}
+                    className="range range-accent"
+                    onChange={handleChange}
+                />
+                <input
+                    className="btn btn-lg btn-block lg:w-32 btn-primary mt-4
+                        mx-auto text-primary-content uppercase
+                        transition duration-200 ease-in hover:btn-secondary"
+                    type="submit"
+                    value="Apply"
+                />
 
-            {formErrors.length
-                ? <Alert messages={formErrors} />
-                : null
-            }
+                {formErrors.length
+                    ? <Alert messages={formErrors} />
+                    : null
+                }
 
-        </form>
+            </form>
+        </div>
     );
 }
 

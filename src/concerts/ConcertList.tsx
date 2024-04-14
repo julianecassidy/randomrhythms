@@ -43,13 +43,18 @@ function ConcertList({ concerts }: ConcertListProps) {
     console.debug("ConcertList");
 
     return (
-        <div className="ConcertList">
-            <FilterBox filter={filter} />
+        <div className="ConcertList flex flex-wrap lg:flex-nowrap mt-8">
+            <div className="ConcertList-filter w-full lg:w-1/4">
+                <FilterBox filter={filter} />
+            </div>
             {!displayConcerts.length
-            ? <div className="ConcertList-no-concerts">
+            ? <div className="ConcertList-no-concerts mx-8">
                 Search for concerts. Not seeing any results? Try changing your search.
             </div>
-            :<div className="ConcertList-concerts">
+            :<div
+                className="ConcertList-concerts mt-8 lg:mt-0 mx-8 flex flex-wrap
+                justify-center gap-8 w-full lg:w-3/4"
+            >
                 {displayConcerts.map((c) => <ConcertCard key={c.id} concert={c} />)}
             </div>}
         </div>

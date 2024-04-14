@@ -33,8 +33,9 @@ export default {
           "primary-content": "#FBFFFE",
           "secondary": "#8F2D56",
           "accent": "#FE9920",
-          "neutral": "#FBFFFE",
+          "base-200": "#FBFFFE",
           "base-100": "#160C28",
+          "neutral": "#F0F3F5",
         },
       },
       {
@@ -43,8 +44,9 @@ export default {
           "primary-content": "#FBFFFE",
           "secondary": "#8F2D56",
           "accent": "#FE9920",
-          "neutral": "#160C28",
+          "base-200": "#160C28",
           "base-100": "#FBFFFE",
+          "neutral": "#160C28",
         },
       },
     ], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]

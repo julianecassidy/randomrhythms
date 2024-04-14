@@ -4,7 +4,6 @@ import ConcertList from "./ConcertList";
 import SearchBox from "./SearchBox";
 import LoadingSpinner from "@layout/LoadingSpinner";
 import { ConcertApi } from "@helpers/api";
-import "./Concerts.css";
 
 /** Component for Concerts
  *
@@ -44,7 +43,7 @@ function Concerts() {
     }
 
     return (
-        <div id="Concerts">
+        <div id="Concerts" className="bg-neutral py-8 px-4 sm:px-8">
             <SearchBox search={search} />
             {
                 concertData.isLoading

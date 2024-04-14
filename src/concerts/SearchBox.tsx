@@ -27,7 +27,9 @@ function SearchBox({ search }: SearchBoxProps) {
 
     const initialFormData: FormDataState = {
         dateFrom: new Date().toLocaleDateString('en-CA'),
-        dateTo: new Date().toLocaleDateString('en-CA'),
+        dateTo: new Date(
+            new Date().setDate(new Date().getDate() + 1)
+        ).toLocaleDateString('en-CA'),
         zipCode: '',
     };
 
@@ -67,7 +69,7 @@ function SearchBox({ search }: SearchBoxProps) {
     return (
         <div
             id="SearchBox"
-            className="bg-neutral border-['#FBFFFE'] rounded-xl px-8 lg:px-0 pt-4 pb-8"
+            className="bg-base-200 border-[#FBFFFE] border-2 rounded-xl px-8 lg:px-0 pt-4 pb-8"
         >
             <h2 className="pl-2 sm:pl-8">
                 Find your next concert.
@@ -81,7 +83,7 @@ function SearchBox({ search }: SearchBoxProps) {
                 onSubmit={handleSubmit}
             >
                 <label
-                    className="input input-bordered input-lg bg-[#f0f3f5]
+                    className="input input-bordered input-lg bg-[#F0F3F5]
                     text-[#160C28] flex items-center gap-2 w-full lg:w-1/4">
                         <b>From:</b>
                     <input
@@ -95,7 +97,7 @@ function SearchBox({ search }: SearchBoxProps) {
                     />
                 </label>
                 <label
-                    className="input input-bordered input-lg bg-[#f0f3f5]
+                    className="input input-bordered input-lg bg-[#F0F3F5]
                     text-[#160C28] flex items-center gap-2 w-full lg:w-1/4">
                         <b>To:</b>
                     <input
@@ -109,7 +111,7 @@ function SearchBox({ search }: SearchBoxProps) {
                     />
                 </label>
                 <label
-                    className="input input-lg input-bordered bg-[#f0f3f5]
+                    className="input input-lg input-bordered bg-[#F0F3F5]
                     text-[#160C28] flex flex-nowrap items-center gap-2 w-full lg:w-1/4">
                         <b>Zip Code:</b>
                     <input
@@ -128,7 +130,7 @@ function SearchBox({ search }: SearchBoxProps) {
 
                 <input
                     className="btn btn-lg btn-block lg:w-32 btn-primary
-                            text-primary-content uppercase text-center
+                            text-primary-content uppercase
                             transition duration-200 ease-in
                             hover:btn-secondary"
                     type="submit"
