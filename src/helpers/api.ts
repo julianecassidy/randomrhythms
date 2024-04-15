@@ -4,6 +4,8 @@ const BACKEND_BASE_URL = import.meta.env.PROD
   ? import.meta.env.VITE_API_URL
   : "http://localhost:3000";
 
+console.log(BACKEND_BASE_URL);
+
 /** User API Class.
  *
  * Static class for all API calls to get/post user data from the backend API.
