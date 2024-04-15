@@ -35,10 +35,10 @@ function App() {
   });
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
-  // console.debug("App", "currentUser", currentUser, "token", token);
+  console.debug("App", "currentUser", currentUser, "token", token);
 
   useEffect(function loadUserInfo(): void {
-    // console.debug("App useEffect loadUserInfo", "token=", token);
+    console.debug("App useEffect loadUserInfo", "token=", token);
     console.log(`Hello! Welcome to Random Rhythms. This is a work in progress app and you might run across some bugs. If the screen mysteriously goes blank, try a refresh. If something else happens, send me a message on my website to let me know: https://julianecassidy.com`);
 
     async function getCurrentUser(): Promise<void> {
@@ -53,7 +53,7 @@ function App() {
             data: user
           });
         } catch (err) {
-          // console.error("App loadUserInfo: problem loading", err);
+          console.error("App loadUserInfo: problem loading", err);
           setCurrentUser({
             isLoaded: true,
             data: null
@@ -78,6 +78,7 @@ function App() {
     name: string,
     password: string,
   ): Promise<void> {
+    console.log("signup");
     const tokenFromApi = await UserApi.register(email, name, password);
     setToken(tokenFromApi);
   }
