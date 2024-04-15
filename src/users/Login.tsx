@@ -68,6 +68,9 @@ function Login({ login }: LoginProps) {
 
     return (
         <div id="Login" className="mx-8 mt-8 mb-32 bg-base-200 rounded-xl shadow-lg">
+            <h2 className="pt-4 text-center underline decoration-accent decoration-2">
+                Login
+            </h2>
             <form
                 id="Login-form"
                 className="flex flex-wrap justify-center gap-8 p-8"

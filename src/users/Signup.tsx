@@ -75,6 +75,9 @@ function Signup({ signup }: SignupProps) {
 
     return (
         <div id="Signup" className="mx-8 mt-8 mb-32 bg-base-200 rounded-xl shadow-lg">
+            <h2 className="pt-4 text-center underline decoration-accent decoration-2">
+                Signup
+            </h2>
             <form
                 id="Signup-form"
                 className="flex flex-wrap justify-center gap-8 p-8"
