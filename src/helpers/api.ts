@@ -49,9 +49,11 @@ class UserApi {
     password: string,
     name: string,
   ) : Promise<string> {
-      const userData = { email, password, name, signupCode: "born to run" };
+    console.log("register")
+    const userData = { email, password, name, signupCode: "born to run" };
 
-      const { token } = await this.request("auth/register", userData, "POST");
+    const { token } = await this.request("auth/register", userData, "POST");
+    console.log("token in register", token);
 
       return token;
     }

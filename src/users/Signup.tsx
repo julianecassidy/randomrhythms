@@ -43,7 +43,7 @@ function Signup({ signup }: SignupProps) {
     const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    // // console.debug("Signup", formData, formErrors);
+    console.debug("Signup", formData, formErrors);
 
     /** Update form input. */
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
@@ -59,12 +59,14 @@ function Signup({ signup }: SignupProps) {
 
     /** Handle form submit. */
     async function handleSubmit(evt: React.FormEvent) {
+        console.log("signup handleSubmit")
         evt.preventDefault();
         setLoading(true);
 
         const { email, password, name } = formData;
 
         try {
+            console.log("handleSubmit try block");
             await signup(email, password, name);
             navigate("/");
         } catch (err: any) {
