@@ -78,7 +78,6 @@ function App() {
     name: string,
     password: string,
   ): Promise<void> {
-    console.log("signup");
     const tokenFromApi = await UserApi.register(email, name, password);
     setToken(tokenFromApi);
   }
