@@ -48,7 +48,7 @@ function ConcertList({ concerts }: ConcertListProps) {
                 <FilterBox filter={filter} />
             </div>
             {!displayConcerts.length
-            ? <div className="ConcertList-no-concerts mx-8">
+            ? <div className="ConcertList-no-concerts mx-8 my-4">
                 Not seeing any results? Try changing the search or updating the filters.
             </div>
             :<div

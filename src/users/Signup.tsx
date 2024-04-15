@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Alert from "@layout/Alert";
 import LoadingSpinner from "@layout/LoadingSpinner";
 
@@ -76,10 +76,13 @@ function Signup({ signup }: SignupProps) {
     };
 
     return (
-        <div id="Signup" className="mx-8 mt-8 mb-32 bg-base-200 rounded-xl shadow-lg">
+        <div id="Signup" className="mx-8 mt-8 mb-32 pb-4 bg-base-200 rounded-xl shadow-lg">
             <h2 className="pt-4 text-center underline decoration-accent decoration-2">
                 Signup
             </h2>
+            <p className="text-center">
+                Already have an account? <Link to="/login">Login!</Link>
+            </p>
             <form
                 id="Signup-form"
                 className="flex flex-wrap justify-center gap-8 p-8"
@@ -105,7 +108,7 @@ function Signup({ signup }: SignupProps) {
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z" clipRule="evenodd" /></svg>
                     <input type="password" name="password" className="grow" placeholder="Password" value={formData.password} onChange={handleChange} />
                 </label>
-                <p className="text-left w-full -mt-4">Must be at least 8 characters</p>
+                <p className="text-left w-full -mt-4">Password must be at least 8 characters</p>
 
 
                 {formErrors.length

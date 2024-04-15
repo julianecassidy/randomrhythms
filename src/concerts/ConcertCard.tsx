@@ -55,7 +55,7 @@ function ConcertCard({ concert }: ConcertCardProps) {
                                         `Visit ticket merchant for ${concert.headliner.name}`
                                     }>
                                     {concert.cost
-                                        ? concert.cost
+                                        ? `$${concert.cost}`
                                         : <small>Get price</small>
                                     }
                                 </a>
