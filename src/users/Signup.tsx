@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from "@layout/Alert";
+import LoadingSpinner from "@layout/LoadingSpinner";
 
 /** Component for Signup
  *
@@ -9,6 +10,7 @@ import Alert from "@layout/Alert";
  *
  * State:
  * - formData: { email, password, name, code }
+ * - loading: boolean
  * - formErrors: []
  *
  * RoutesList -> Signup
@@ -38,9 +40,10 @@ function Signup({ signup }: SignupProps) {
         code: "",
     });
     const [formErrors, setFormErrors] = useState<Array<string>>([]);
+    const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    console.debug("Signup", formData, formErrors);
+    // console.debug("Signup", formData, formErrors);
 
     /** Update form input. */
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
@@ -57,6 +60,7 @@ function Signup({ signup }: SignupProps) {
     /** Handle form submit. */
     async function handleSubmit(evt: React.FormEvent) {
         evt.preventDefault();
+        setLoading(true);
 
         const { email, password, name } = formData;
 
@@ -64,6 +68,7 @@ function Signup({ signup }: SignupProps) {
             await signup(email, password, name);
             navigate("/");
         } catch (err: any) {
+            setLoading(false);
             setFormErrors(err);
         }
     };
@@ -118,6 +123,7 @@ function Signup({ signup }: SignupProps) {
                     value="Signup"
                 />
             </form>
+            {loading && <LoadingSpinner />}
         </div>
     );
 }

@@ -103,7 +103,6 @@ With the app, users will be able to:
 - Get a random concert based on date, city, and price
 - Go directly to the ticket seller's site to purchase a ticket
 
-This repo contains the React front end for the app. The component heirarchy currently looks like this:
 
 ![React Component Heirarchy](/react-heirarchy.PNG)
 

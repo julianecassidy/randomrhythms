@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Alert from "@layout/Alert";
 import { useNavigate } from "react-router-dom";
+import LoadingSpinner from "@layout/LoadingSpinner";
 
 /** Component for Login
  *
@@ -9,6 +10,7 @@ import { useNavigate } from "react-router-dom";
  *
  * State:
  * - formData: { email, password }
+ * - loading: boolean
  * - formErrors: []
  *
  * RoutesList -> Login
@@ -29,7 +31,8 @@ function Login({ login }: LoginProps) {
         email: "",
         password: "",
     });
-    const [formErrors, setFormErrors ] = useState<Array<string>>([]);
+    const [formErrors, setFormErrors] = useState<Array<string>>([]);
+    const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
     // console.debug("Login", formData, formErrors);
@@ -49,6 +52,7 @@ function Login({ login }: LoginProps) {
     /** Handle form submit. */
     async function handleSubmit(evt: React.FormEvent) {
         evt.preventDefault()
+        setLoading(true);
 
         const { email, password } = formData;
 
@@ -57,6 +61,7 @@ function Login({ login }: LoginProps) {
             navigate("/");
         } catch (err: any) {
             // console.log("login err", err);
+            setLoading(false);
             setFormErrors(err);
         }
     };
@@ -102,6 +107,7 @@ function Login({ login }: LoginProps) {
                     value="Login"
                 />
             </form>
+            {loading && <LoadingSpinner />}
         </div>
     )
 }
