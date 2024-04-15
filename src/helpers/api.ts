@@ -1,7 +1,7 @@
 import type { Concert } from "types";
 
 const BACKEND_BASE_URL = import.meta.env.PROD
-  ? import.meta.env.API_URL
+  ? import.meta.env.VITE_API_URL
   : "http://localhost:3000";
 
 /** User API Class.
