@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { User } from '../types';
-import { MouseEventHandler, useEffect, useContext } from 'react';
+import { MouseEventHandler, useEffect } from 'react';
 import useLocalStorage from "../hooks/useLocalStorage";
 import "@layout/NavBar.css";
 

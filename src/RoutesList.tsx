@@ -28,7 +28,7 @@ type RoutesListProps = {
         email: string,
         name: string,
         password: string,
-        code: string) => Promise<void>;
+    ) => Promise<void>;
     login: (email: string, password: string, ) => Promise<void>;
     currentUser: User | null;
 }

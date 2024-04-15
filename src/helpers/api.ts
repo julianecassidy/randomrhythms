@@ -4,12 +4,6 @@ const BACKEND_BASE_URL = import.meta.env.PROD
   ? import.meta.env.API_URL
   : "http://localhost:3000";
 
-interface Token {
-  id: number;
-  name: string;
-  email: string;
-}
-
 /** User API Class.
  *
  * Static class for all API calls to get/post user data from the backend API.

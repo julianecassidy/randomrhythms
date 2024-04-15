@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { User } from "types";
 
 /** Custom hook for keeping state data synced with localStorage.
  *
