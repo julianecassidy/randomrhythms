@@ -35,10 +35,6 @@
     @apply mb-2 text-base;
   }
 
-  a {
-    @apply text-primary hover:text-secondary;
-  }
-
    /* ===== scrollbar ===== */
    html {
     overflow-y: scroll;

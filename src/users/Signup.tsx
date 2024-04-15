@@ -81,7 +81,10 @@ function Signup({ signup }: SignupProps) {
                 Signup
             </h2>
             <p className="text-center">
-                Already have an account? <Link to="/login">Login!</Link>
+                Already have an account?
+                <Link to="/login" className="text-primary hover:text-secondary">
+                    &nbsp;Login!
+                </Link>
             </p>
             <form
                 id="Signup-form"

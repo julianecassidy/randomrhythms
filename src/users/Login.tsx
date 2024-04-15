@@ -72,7 +72,10 @@ function Login({ login }: LoginProps) {
                 Login
             </h2>
             <p className="text-center">
-                Don't have an account? <Link to="/signup">Signup!</Link>
+                Don't have an account?
+                <Link to="/signup" className="text-primary hover:text-secondary">
+                    &nbsp;Signup!
+                </Link>
             </p>
             <form
                 id="Login-form"

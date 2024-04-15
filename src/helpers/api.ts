@@ -29,7 +29,7 @@ class UserApi {
       ? JSON.stringify(data)
       : undefined;
 
-    console.log("url", url);
+    // console.log("url", url);
     const resp = await fetch(url, { method, body, headers });
 
     //fetch API does not throw an error, have to dig into the resp for msgs
@@ -51,11 +51,9 @@ class UserApi {
     password: string,
     name: string,
   ) : Promise<string> {
-    console.log("register")
     const userData = { email, password, name, signupCode: "born to run" };
 
     const { token } = await this.request("auth/register", userData, "POST");
-    console.log("token in register", token);
 
       return token;
     }
