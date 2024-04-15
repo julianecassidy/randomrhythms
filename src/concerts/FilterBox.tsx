@@ -35,7 +35,7 @@ function FilterBox({ filter }: FilterBoxProps) {
     });
     const [formErrors, setFormErrors] = useState<Array<string>>([]);
 
-    console.debug("FilterBox", formData);
+    // console.debug("FilterBox", formData);
 
     /** Update form input. */
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {

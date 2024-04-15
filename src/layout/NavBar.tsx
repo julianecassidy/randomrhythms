@@ -26,7 +26,7 @@ type NavBarProps = {
 };
 
 function NavBar({ currentUser, logout }: NavBarProps) {
-    console.debug("NavBar");
+    // console.debug("NavBar");
 
     const [theme, setTheme] = useLocalStorage(THEME_STORAGE_ID, "light");
     const toggleTheme = () => {

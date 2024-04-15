@@ -11,7 +11,7 @@ const WEBSITE = import.meta.env.VITE_WEBSITE;
  * RoutesList -> PrivacyPolicy
  */
 function PrivacyPolicy() {
-    console.debug("PrivacyPolicy");
+    // console.debug("PrivacyPolicy");
 
     return (
         <main id="main-content">

@@ -18,7 +18,7 @@ type ConcertCardProps = {
 };
 
 function ConcertCard({ concert }: ConcertCardProps) {
-    console.debug("ConcertCard", concert);
+    // console.debug("ConcertCard", concert);
 
     concert.dateTime = new Date(concert.dateTime);
 

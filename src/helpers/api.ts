@@ -33,12 +33,12 @@ class UserApi {
       ? JSON.stringify(data)
       : undefined;
 
-    console.log("url", url);
+    // console.log("url", url);
     const resp = await fetch(url, { method, body, headers });
 
     //fetch API does not throw an error, have to dig into the resp for msgs
     if (!resp.ok) {
-      console.error("API Error:", resp.statusText, resp.status);
+      // console.error("API Error:", resp.statusText, resp.status);
       const { error } = await resp.json();
       throw Array.isArray(error.message) ? error.message : [error.message];
     }
@@ -94,7 +94,7 @@ class ConcertApi {
 
     //fetch API does not throw an error, have to dig into the resp for msgs
     if (!resp.ok) {
-      console.error("API Error:", resp.statusText, resp.status);
+      // console.error("API Error:", resp.statusText, resp.status);
       const { error } = await resp.json();
       throw Array.isArray(error) ? error : [error];
     }

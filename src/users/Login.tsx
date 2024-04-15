@@ -35,7 +35,7 @@ function Login({ login }: LoginProps) {
     const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    // console.debug("Login", formData, formErrors);
+    // // console.debug("Login", formData, formErrors);
 
      /** Update form input. */
      function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
@@ -60,7 +60,7 @@ function Login({ login }: LoginProps) {
             await login(email, password);
             navigate("/");
         } catch (err: any) {
-            // console.log("login err", err);
+            // // console.log("login err", err);
             setLoading(false);
             setFormErrors(err);
         }

@@ -9,7 +9,7 @@
  * RoutesList -> NotFound
  */
 function NotFound() {
-    console.debug("NotFound");
+    // console.debug("NotFound");
 
     return <p>not found</p>
 

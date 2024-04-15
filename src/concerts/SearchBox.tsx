@@ -40,7 +40,7 @@ function SearchBox({ search }: SearchBoxProps) {
 
     const [formData, setFormData] = useState<FormDataState>(initialFormData);
     const [formErrors, setFormErrors] = useState<Array<string>>([]);
-    console.debug("SearchBox, formData", formData);
+    // console.debug("SearchBox, formData", formData);
 
     /** Update form input. */
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {

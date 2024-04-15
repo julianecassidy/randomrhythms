@@ -48,7 +48,7 @@ function RandomConcert() {
     );
     const [searchData, setSearchData] = useState<SearchDataState> (initialSearchData);
 
-    console.debug("RandomConcert", concertData);
+    // console.debug("RandomConcert", concertData);
 
     /** Takes a dateFrom, dateTo, zipCode, and optional price and updates
      * concertData with random matching concert. */
@@ -59,7 +59,7 @@ function RandomConcert() {
         distance: string,
         cost: string,
     ) {
-        console.log("getRandomConcert");
+        // console.log("getRandomConcert");
         setConcertData({concert: null, isLoading: true});
         setSearchData({ dateFrom, dateTo, zipCode, distance, cost });
 

@@ -28,7 +28,7 @@ function Concerts() {
     const [concertData, setConcertData] = useState<ConcertDataState> (
         {concerts: [], isLoading: false}
     );
-    console.debug("Concerts", concertData);
+    // console.debug("Concerts", concertData);
 
     /** Takes a dateFrom, dateTo, and zipCode and updates concertData with
      * matching concerts.

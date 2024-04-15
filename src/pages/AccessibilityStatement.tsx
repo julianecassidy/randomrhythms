@@ -9,7 +9,7 @@
  * RoutesList -> AccessibilityStatement
  */
 function AccessibilityStatement() {
-  console.debug("AccessibilityStatement");
+  // console.debug("AccessibilityStatement");
 
   return (
     <main id="AccessibilityStatement">

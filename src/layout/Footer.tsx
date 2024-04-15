@@ -12,7 +12,7 @@ import "@layout/Footer.css";
  * App -> Footer
  */
 function Footer() {
-    // console.debug("Footer")
+    // // console.debug("Footer")
 
     return (
         <footer>

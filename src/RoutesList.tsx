@@ -34,7 +34,7 @@ type RoutesListProps = {
 }
 
 function RoutesList({ signup, login, currentUser }: RoutesListProps) {
-    console.debug("RoutesList");
+    // console.debug("RoutesList");
 
     return (
         <Routes>

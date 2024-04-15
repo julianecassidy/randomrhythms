@@ -35,12 +35,12 @@ function ConcertList({ concerts }: ConcertListProps) {
             maxCost,
         );
 
-        console.log("filteredConcerts", filteredConcerts);
+        // console.log("filteredConcerts", filteredConcerts);
 
         setDisplayConcerts(filteredConcerts);
     }
 
-    console.debug("ConcertList");
+    // console.debug("ConcertList");
 
     return (
         <div className="ConcertList flex flex-wrap lg:flex-nowrap mt-8">

@@ -29,7 +29,7 @@ function ConcertDetail() {
     const [concertData, setConcertData] = useState<ConcertDataState>(
         { concert: null, isLoading: true }
     );
-    console.debug("ConcertDetail", "id", id, "concertData", concertData);
+    // console.debug("ConcertDetail", "id", id, "concertData", concertData);
 
     // Get concert detail from API on component mount.
     useEffect(function getConcertOnMount(): void {

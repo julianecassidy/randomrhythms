@@ -43,7 +43,7 @@ function Signup({ signup }: SignupProps) {
     const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    // console.debug("Signup", formData, formErrors);
+    // // console.debug("Signup", formData, formErrors);
 
     /** Update form input. */
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
