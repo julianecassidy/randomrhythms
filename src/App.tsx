@@ -7,6 +7,8 @@ import NavBar from '@layout/NavBar.tsx';
 import RoutesList from './RoutesList.tsx';
 import Footer from '@layout/Footer.tsx';
 
+export const TOKEN_STORAGE_ID = "token";
+
 /** App for RandomRhythms
  *
  * Props:
@@ -19,7 +21,6 @@ import Footer from '@layout/Footer.tsx';
  */
 
 // Key name for storing token in localStorage for "remember me" re-login
-export const TOKEN_STORAGE_ID = "token";
 
 type CurrentUserState = {
   data: User | null;

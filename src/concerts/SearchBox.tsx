@@ -33,9 +33,10 @@ function SearchBox({ search }: SearchBoxProps) {
         zipCode: '',
     };
 
+    const dateMin = new Date().toLocaleDateString('en-CA')
     const yearFromToday = new Date(
         new Date().setFullYear(new Date().getFullYear() + 1)
-    ).toLocaleDateString();
+    ).toLocaleDateString('en-CA');
 
     const [formData, setFormData] = useState<FormDataState>(initialFormData);
     const [formErrors, setFormErrors] = useState<Array<string>>([]);
@@ -92,7 +93,7 @@ function SearchBox({ search }: SearchBoxProps) {
                         type="date"
                         name="dateFrom"
                         value={formData.dateFrom}
-                        min={formData.dateFrom}
+                        min={dateMin}
                         max={yearFromToday}
                         onChange={handleChange}
                     />
@@ -106,7 +107,7 @@ function SearchBox({ search }: SearchBoxProps) {
                         type="date"
                         name="dateTo"
                         value={formData.dateTo}
-                        min={formData.dateTo}
+                        min={formData.dateFrom}
                         max={yearFromToday}
                         onChange={handleChange}
                     />
@@ -119,6 +120,7 @@ function SearchBox({ search }: SearchBoxProps) {
                         className="w-1/2"
                         type="text"
                         name="zipCode"
+                        placeholder="12345"
                         value={formData.zipCode}
                         onChange={handleChange}
                     />

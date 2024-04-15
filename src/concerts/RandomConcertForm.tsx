@@ -42,14 +42,15 @@ type FormDataState = {
 function RandomConcertForm(
     { initialFormData, maxDistance, maxCost, search }: RandomConcertFormProps) {
 
+    const dateMin = new Date().toLocaleDateString('en-CA')
     const yearFromToday = new Date(
         new Date().setFullYear(new Date().getFullYear() + 1)
-    ).toLocaleDateString();
+    ).toLocaleDateString('en-CA');
 
     const [formData, setFormData] = useState<FormDataState>(initialFormData);
     const [formErrors, setFormErrors] = useState<Array<string>>([]);
 
-    console.debug("RandomConcertForm", formData);
+    // console.debug("RandomConcertForm", formData);
 
     /** Update form input. */
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
@@ -100,7 +101,7 @@ function RandomConcertForm(
                         type="date"
                         name="dateFrom"
                         value={formData.dateFrom}
-                        min={formData.dateFrom}
+                        min={dateMin}
                         max={yearFromToday}
                         onChange={handleChange}
                     />
@@ -114,7 +115,7 @@ function RandomConcertForm(
                         type="date"
                         name="dateTo"
                         value={formData.dateTo}
-                        min={formData.dateTo}
+                        min={formData.dateFrom}
                         max={yearFromToday}
                         onChange={handleChange}
                     />
@@ -127,6 +128,7 @@ function RandomConcertForm(
                         className="w-1/2"
                         type="text"
                         name="zipCode"
+                        placeholder="12345"
                         value={formData.zipCode}
                         onChange={handleChange}
                     />

@@ -1,8 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import { User } from '../types';
-import { MouseEventHandler, useState, useEffect } from 'react';
+import { MouseEventHandler, useEffect, useContext } from 'react';
 import useLocalStorage from "../hooks/useLocalStorage";
 import "@layout/NavBar.css";
+
+export const THEME_STORAGE_ID = "theme";
 
 /** Component for NavBar
  *
@@ -17,7 +19,6 @@ import "@layout/NavBar.css";
  */
 
 // Key name for storing token in localStorage for "remember me" re-login
-export const THEME_STORAGE_ID = "theme";
 
 type NavBarProps = {
     currentUser: User | null;
