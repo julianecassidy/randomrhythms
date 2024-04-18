@@ -31,7 +31,7 @@ function FilterBox({ filter }: FilterBoxProps) {
     const [formData, setFormData] = useState<FormDataState>({
         distance: DEFAULT_DISTANCE,
         minCost: "0",
-        maxCost: "1000",
+        maxCost: "200",
     });
     const [formErrors, setFormErrors] = useState<Array<string>>([]);
 

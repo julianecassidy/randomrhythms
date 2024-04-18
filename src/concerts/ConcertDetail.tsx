@@ -29,7 +29,7 @@ function ConcertDetail() {
     const [concertData, setConcertData] = useState<ConcertDataState>(
         { concert: null, isLoading: true }
     );
-    // console.debug("ConcertDetail", "id", id, "concertData", concertData);
+    console.debug("ConcertDetail", "id", id, "concertData", concertData);
 
     // Get concert detail from API on component mount.
     useEffect(function getConcertOnMount(): void {
@@ -49,10 +49,11 @@ function ConcertDetail() {
     if (!concertData.isLoading && !concertData.concert) return <NotFound />;
 
     return (
-        <div className="ConcertDetail mx-8 mb-8">
+        <div className="ConcertDetail mx-8 mb-32">
             <img
                 src={concertData.concert?.headliner.bandImageUrl}
                 alt={concertData.concert?.headliner.name}
+                className="mx-auto"
             />
             <div className="ConcertDetail-body mt-4 flex flex-wrap gap-8 justify-center">
                 <div
@@ -74,8 +75,8 @@ function ConcertDetail() {
                 <div
                     className="ConcertDetail-opener order-2 sm:order-3 card
                     w-full max-h-48 sm:w-1/4 bg-base-200 shadow-xl"
-                >{concertData.concert?.openers.length &&
-                    <div className="card-body">
+                >{concertData.concert?.openers.length
+                    ? <div className="card-body">
                         <h3
                             className="underline text-decoration decoration-accent
                             decoration-1">
@@ -86,7 +87,15 @@ function ConcertDetail() {
                                 <li key={idx}>{o}</li>
                             )}
                         </ul>
-                    </div>}
+                    </div>
+                    : <div className="card-body">
+                    <h3
+                        className="underline text-decoration decoration-accent
+                        decoration-1">
+                        Openers
+                    </h3>
+                    <p>No openers listed. Better show up on time.</p>
+                </div>}
                 </div>
                 <div
                     className="ConcertDetail-details order-3 sm:order-2 card w-full sm:w-2/3

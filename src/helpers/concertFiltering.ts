@@ -14,7 +14,9 @@ function filterConcerts(
   let filteredConcerts = concerts;
 
   if (distanceNum) {
-    filteredConcerts = filteredConcerts.filter(c => c.venue.distance <= distanceNum);
+    filteredConcerts = filteredConcerts.filter(c => (
+      c.venue.distance && c.venue.distance <= distanceNum
+    ));
   }
 
   if (minCostNum) {

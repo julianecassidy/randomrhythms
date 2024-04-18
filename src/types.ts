@@ -32,7 +32,7 @@ export type Venue = {
   city: string;
   state: string;
   zipCode: string;
-  distance: number;
+  distance: number | undefined;
 };
 
 export type Band = {
