@@ -48,7 +48,7 @@ function ConcertCard({ concert }: ConcertCardProps) {
                             items-center"
                         >
                             <div className="ConcertCard-cost w-1/3 badge
-                                badge-secondary badge-lg">
+                                badge-primary badge-lg hover:badge-secondary">
                                 <a
                                     href={concert.ticketUrl}
                                     aria-label={
@@ -61,13 +61,13 @@ function ConcertCard({ concert }: ConcertCardProps) {
                                 </a>
                             </div>
                             <div
-                                className="ConcertCard-genres w-2/3 flex
+                                className="ConcertCard-genres w-2/3 flex flex-wrap gap-y-1.5
                                 justify-end"
                             >
                                 {concert.headliner.genres.map((g, idx) => {
                                     return (
                                         <div className="badge badge-outline mx-0.5" key={idx}>
-                                            {g.replaceAll("-", " ").slice(0, 12)}
+                                            {g.replaceAll("-", " ")}
                                         </div>
                                     );
                                 })}

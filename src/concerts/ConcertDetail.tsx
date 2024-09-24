@@ -106,7 +106,7 @@ function ConcertDetail() {
                     </h4>
                     <div className="ConcertDetail-pricing">
                         <p>{(concertData.concert?.cost)
-                            ? `Tickets start at: ${concertData.concert?.cost}`
+                            ? `Tickets start at: $${concertData.concert?.cost}`
                             : "Visit the ticketing website for pricing."}</p>
                         <button className="btn btn-primary hover:btn-secondary">
                             <a href={concertData.concert?.ticketUrl}>Buy Tickets!</a>
