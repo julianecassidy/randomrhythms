@@ -63,7 +63,7 @@ function NavBar({ currentUser, logout }: NavBarProps) {
                     </div>
                     <div className="flex-none hidden lg:block">
                         <nav id="NavBar-menu">
-                            {!currentUser &&
+                            {/* {!currentUser &&
                                 <>
                                     <NavLink to="/signup" className={({ isActive }) =>
                                         isActive ? "active" : ""}>Signup</NavLink>
@@ -73,13 +73,13 @@ function NavBar({ currentUser, logout }: NavBarProps) {
 
                             {currentUser &&
                                 <>
-                                    <NavLink to="/" className={({ isActive }) =>
-                                        isActive ? "active" : ""}>Concerts</NavLink>
-                                    <NavLink to="/random" className={({ isActive }) =>
-                                        isActive ? "active" : ""}>Random Concert</NavLink>
                                     <Link to="/login" onClick={logout}>Logout</Link>
                                 </>
-                            }
+                            } */}
+                            <NavLink to="/" className={({ isActive }) =>
+                                isActive ? "active" : ""}>Concerts</NavLink>
+                            <NavLink to="/random" className={({ isActive }) =>
+                                isActive ? "active" : ""}>Random Concert</NavLink>
                             <label className="swap swap-rotate group">
 
                                 {/* this hidden checkbox controls the state */}

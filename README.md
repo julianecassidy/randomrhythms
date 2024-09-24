@@ -96,7 +96,6 @@ Through this project, I've enjoyed learning more about:
 
 With the app, users will be able to:
 
-- Create an account with an invite code
 - Get a list of all concerts based on date and city
 - Filter concert list by distance and cost
 - View details on individual concerts
@@ -171,6 +170,7 @@ set up and run the app:
 - [ ] Build MVP front end app
 - [ ] Add testing
 - [ ] Implement geolocation to detect user's location for faster results
+- [ ] Add login feature to save searches and favorite concerts
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

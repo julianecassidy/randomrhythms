@@ -84,9 +84,9 @@ function RandomConcertForm(
         >
             <h2 className="pl-2 sm:pl-8">
                 <span className="hidden lg:inline">
-                Choose how much you'll pay. Choose how far you'll travel. &nbsp;
+                Choose how much you'll pay. Choose how far you'll travel.&nbsp;
                 </span>
-                    Let us choose the concert.
+                Let us choose the concert.
             </h2>
             <form
                 id="RandomConcertForm-form"
