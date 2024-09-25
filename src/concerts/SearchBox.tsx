@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Alert from "@layout/Alert";
+import { useSearchDataStore } from "hooks/searchDataStore";
+import { useShallow } from 'zustand/react/shallow'
 
 /** Component for SearchBox
  *
  * Props:
- * - search()
+ * - none
  *
  * State:
  * - formData: { dateFrom, dateTo, zipCode }
@@ -13,25 +15,15 @@ import Alert from "@layout/Alert";
  * Concerts -> SearchBox
  */
 
-type SearchBoxProps = {
-    search: (dateFrom: string, dateTo: string, zipCode: string) => undefined;
-};
-
 type FormDataState = {
     dateFrom: string;
     dateTo: string;
     zipCode: string;
 };
 
-function SearchBox({ search }: SearchBoxProps) {
+function SearchBox() {
 
-    const initialFormData: FormDataState = {
-        dateFrom: new Date().toLocaleDateString('en-CA'),
-        dateTo: new Date(
-            new Date().setDate(new Date().getDate() + 1)
-        ).toLocaleDateString('en-CA'),
-        zipCode: '',
-    };
+    const initialFormData = useSearchDataStore(useShallow((state) => state.searchData));
 
     const dateMin = new Date().toLocaleDateString('en-CA')
     const yearFromToday = new Date(
@@ -40,7 +32,7 @@ function SearchBox({ search }: SearchBoxProps) {
 
     const [formData, setFormData] = useState<FormDataState>(initialFormData);
     const [formErrors, setFormErrors] = useState<Array<string>>([]);
-    // console.debug("SearchBox, formData", formData);
+    console.debug("SearchBox, formData", formData);
 
     /** Update form input. */
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
@@ -55,12 +47,10 @@ function SearchBox({ search }: SearchBoxProps) {
     };
 
     /** Handle form submit. */
-    async function handleSubmit(evt: React.FormEvent) {
-        evt.preventDefault();
-
-        const { dateFrom, dateTo, zipCode } = formData;
-        search(dateFrom, dateTo, zipCode);
-    };
+    const search = useSearchDataStore((state) => state.search);
+    const handleSubmit = () => {
+        search(formData.dateFrom, formData.dateTo, formData.zipCode)
+    }
 
     return (
         <div
@@ -77,7 +67,6 @@ function SearchBox({ search }: SearchBoxProps) {
             <form
                 id="SearchBox-form"
                 className="flex flex-wrap justify-center gap-2 lg:flex-nowrap sm:gap-4"
-                onSubmit={handleSubmit}
             >
                 <label
                     className="input input-bordered input-lg bg-[#F0F3F5]
@@ -126,14 +115,14 @@ function SearchBox({ search }: SearchBoxProps) {
                     : null
                 }
 
-                <input
+                <button
                     className="btn btn-lg btn-block lg:w-32 btn-primary
                             text-primary-content uppercase
                             transition duration-200 ease-in
                             hover:btn-secondary"
-                    type="submit"
-                    value="Rock On"
-                />
+                    type="button"
+                    onClick={() => handleSubmit()}>Rock On
+                </button>
             </form>
         </div>
     );
