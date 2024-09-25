@@ -1,8 +1,8 @@
-import { useState } from "react";
 import type { Concert } from "../types";
 import ConcertCard from "./ConcertCard";
 import FilterBox from "./FilterBox";
-import filterConcerts from "@helpers/concertFiltering";
+import { useFilterDataStore } from "hooks/dataStore";
+import { useShallow } from 'zustand/react/shallow';
 
 
 /** Component for ConcertList
@@ -23,22 +23,30 @@ type ConcertListProps = {
 
 function ConcertList({ concerts }: ConcertListProps) {
 
-    const [displayConcerts, setDisplayConcerts] = useState<Concert[]>(concerts || []);
+    // zustand for persisting filter data and display concerts
+    const filterData = useFilterDataStore(useShallow((state) => state.filterData));
+    const [displayConcerts] = useFilterDataStore(useShallow((state) => [state.displayConcerts ?? concerts]));
+    // const [displayConcerts, setDisplayConcerts] = useState<Concert[]>(concerts || []);
 
+    console.log({ concerts, filterData, displayConcerts });
     /** Takes optional distance, minCost, and maxCost and updates
- * displayConcerts. */
-    function filter(distance: string, minCost: string, maxCost: string) {
-        const filteredConcerts = filterConcerts(
+    * displayConcerts. */
+    const updateDisplayConcerts = useFilterDataStore((state) => state.filter);
+    const updateFilterData = useFilterDataStore((state) => state.updateFilterData);
+    const filter = (distance: string, minCost: string, maxCost: string) => {
+        updateFilterData(distance, minCost, maxCost);
+        updateDisplayConcerts(
             concerts!,
             distance,
             minCost,
-            maxCost,
+            maxCost
         );
+    };
 
-        // console.log("filteredConcerts", filteredConcerts);
+    // console.log("filteredConcerts", filteredConcerts);
 
-        setDisplayConcerts(filteredConcerts);
-    }
+    // setDisplayConcerts(filteredConcerts);
+    // }
 
     // console.debug("ConcertList");
 
@@ -49,7 +57,7 @@ function ConcertList({ concerts }: ConcertListProps) {
                     <FilterBox filter={filter} />
                 }
             </div>
-            {!displayConcerts.length
+            {!displayConcerts?.length
                 ? <div className="ConcertList-no-concerts mx-8 my-4">
                     Not seeing any results? Try changing the search or updating the filters.
                 </div>

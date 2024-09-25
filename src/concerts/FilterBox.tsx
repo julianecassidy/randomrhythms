@@ -1,16 +1,18 @@
 import { useState } from "react";
 import Alert from "@layout/Alert";
+import { useFilterDataStore } from "hooks/dataStore";
+import { useShallow } from 'zustand/react/shallow';
 
 /** Component for FilterBox
  *
  * Props:
- * - filter()
+ * - none
  *
  * State:
  * - formData: { distance, minCost, maxCost }
  * - formErrors: []
  *
- * Concerts -> FilterBox
+ * ConcertList -> FilterBox
  */
 // This coordinates to the default distance (in miles) used by the API for
 // searches from the zip code.
@@ -28,11 +30,9 @@ type FormDataState = {
 
 function FilterBox({ filter }: FilterBoxProps) {
 
-    const [formData, setFormData] = useState<FormDataState>({
-        distance: DEFAULT_DISTANCE,
-        minCost: "0",
-        maxCost: "200",
-    });
+    const initialFormData = useFilterDataStore(useShallow((state) => state.filterData));
+
+    const [formData, setFormData] = useState<FormDataState>(initialFormData);
     const [formErrors, setFormErrors] = useState<Array<string>>([]);
 
     // console.debug("FilterBox", formData);
@@ -50,9 +50,7 @@ function FilterBox({ filter }: FilterBoxProps) {
     };
 
     /** Handle form submit. */
-    function handleSubmit(evt: React.FormEvent) {
-        evt.preventDefault();
-
+     function handleSubmit() {
         const { distance, minCost, maxCost } = formData;
 
         try {
@@ -71,10 +69,9 @@ function FilterBox({ filter }: FilterBoxProps) {
             <form
                 className="FilterBox-form flex flex-wrap justify-start gap-4
                 sm:gap-4 w-full"
-                onSubmit={handleSubmit}
             >
                 <label htmlFor="cost" className="w-full"><b>Cost</b></label>
-                <small className="-mt-3">{`$0 to $${formData.maxCost}`}</small>
+                <span className="-mt-3"><strong>$0</strong> to <strong>${`${formData.maxCost}`}</strong></span>
                 <input
                     name="maxCost"
                     type="range"
@@ -88,7 +85,7 @@ function FilterBox({ filter }: FilterBoxProps) {
                 <label htmlFor="distance" className="mt-4 w-full">
                     <b>Distance</b>
                 </label>
-                <small className="-mt-3">{`0 mi to ${formData.distance} mi`}</small>
+                <span className="-mt-3"><strong>0 mi</strong> to <strong>{`${formData.distance} mi`}</strong></span>
                 <input
                     name="distance"
                     type="range"
@@ -98,13 +95,13 @@ function FilterBox({ filter }: FilterBoxProps) {
                     className="range range-accent"
                     onChange={handleChange}
                 />
-                <input
+                <button
                     className="btn btn-lg btn-block lg:w-32 btn-primary mt-4
                         mx-auto text-primary-content uppercase
                         transition duration-200 ease-in hover:btn-secondary"
-                    type="submit"
-                    value="Apply"
-                />
+                    type="button"
+                    onClick={handleSubmit}>Apply
+                </button>
 
                 {formErrors.length
                     ? <Alert messages={formErrors} />

@@ -19,3 +19,9 @@ export const LOGO_IMAGE = {
   width: 400,
   height: 46,
 }
+
+// This coordinates to the default distance (in miles) used by the API for
+// searches from the zip code.
+export const DEFAULT_DISTANCE = "50";
+
+export const DEFUALT_MAX_COST = "200";

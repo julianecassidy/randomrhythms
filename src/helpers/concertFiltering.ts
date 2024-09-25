@@ -8,6 +8,8 @@ function filterConcerts(
   minCost: string,
   maxCost: string) : Array<Concert>{
 
+    console.debug("filterConcerts");
+
   const distanceNum = distance !== "" ? Number(distance) : undefined;
   const minCostNum = minCost !== "" ? Number(minCost) : undefined;
   const maxCostNum = maxCost !== "" ? Number(maxCost) : undefined;

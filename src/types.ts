@@ -46,3 +46,9 @@ export type SearchData = {
   dateTo: string;
   zipCode: string;
 };
+
+export type FilterData = {
+  distance: string;
+  minCost: string;
+  maxCost: string;
+}

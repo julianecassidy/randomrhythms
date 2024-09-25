@@ -32,7 +32,7 @@ function SearchBox() {
 
     const [formData, setFormData] = useState<FormDataState>(initialFormData);
     const [formErrors, setFormErrors] = useState<Array<string>>([]);
-    console.debug("SearchBox, formData", formData);
+    // console.debug("SearchBox, formData", formData);
 
     /** Update form input. */
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
@@ -50,7 +50,7 @@ function SearchBox() {
     const search = useSearchDataStore((state) => state.search);
     const handleSubmit = () => {
         search(formData.dateFrom, formData.dateTo, formData.zipCode)
-    }
+    };
 
     return (
         <div

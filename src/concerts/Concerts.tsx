@@ -1,10 +1,9 @@
-import type { SearchData } from "../types";
 import ConcertList from "./ConcertList";
 import SearchBox from "./SearchBox";
 import LoadingSpinner from "@layout/LoadingSpinner";
 import { ConcertApi } from "@helpers/api";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useSearchDataStore } from "hooks/searchDataStore";
+import { useSearchDataStore } from "hooks/dataStore";
 import { useShallow } from 'zustand/react/shallow'
 
 /** Component for Concerts
@@ -28,7 +27,7 @@ import { useShallow } from 'zustand/react/shallow'
 function Concerts() {
     console.debug("Concerts");
 
-    // zustand for maintaining search data
+    // zustand for persisting search data
     const searchData = useSearchDataStore(useShallow((state) => state.searchData));
 
     // react-query for search via API
