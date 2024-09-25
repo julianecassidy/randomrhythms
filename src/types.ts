@@ -40,3 +40,9 @@ export type Band = {
   bandImageUrl: string;
   genres: Array<string>;
 };
+
+export type SearchData = {
+  dateFrom: string;
+  dateTo: string;
+  zipCode: string;
+};

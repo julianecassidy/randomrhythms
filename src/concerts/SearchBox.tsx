@@ -14,7 +14,7 @@ import Alert from "@layout/Alert";
  */
 
 type SearchBoxProps = {
-    search: (dateFrom: string, dateTo: string, zipCode: string) => Promise<void>;
+    search: (dateFrom: string, dateTo: string, zipCode: string) => undefined;
 };
 
 type FormDataState = {
@@ -59,12 +59,7 @@ function SearchBox({ search }: SearchBoxProps) {
         evt.preventDefault();
 
         const { dateFrom, dateTo, zipCode } = formData;
-
-        try {
-            await search(dateFrom, dateTo, zipCode);
-        } catch (err: any) {
-            setFormErrors(err);
-        }
+        search(dateFrom, dateTo, zipCode);
     };
 
     return (

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import useLocalStorage from "./hooks/useLocalStorage";
 import { jwtDecode } from "jwt-decode";
 import type { User } from "types.ts";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { UserApi } from "./helpers/api.ts";
 import NavBar from '@layout/NavBar.tsx';
 import RoutesList from './RoutesList.tsx';
@@ -34,6 +35,8 @@ function App() {
     isLoaded: false
   });
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
+
+  const queryClient = new QueryClient();
 
   // console.debug("App", "currentUser", currentUser, "token", token);
 
@@ -99,9 +102,11 @@ function App() {
 
   return (
     <>
-      <NavBar currentUser={currentUser.data} logout={logout} />
-      <RoutesList signup={signup} login={login} currentUser={currentUser.data} />
-      <Footer />
+      <QueryClientProvider client={queryClient}>
+        <NavBar currentUser={currentUser.data} logout={logout} />
+        <RoutesList signup={signup} login={login} currentUser={currentUser.data} />
+        <Footer />
+      </QueryClientProvider>
     </>
   );
 }
