@@ -33,8 +33,6 @@ function Concerts() {
     // react-query for search via API
     // Takes a dateFrom, dateTo, and zipCode and updates concertData with
     // matching concerts.
-    const queryClient = useQueryClient();
-
     const { dateFrom, dateTo, zipCode } = searchData;
     const concertData = useQuery({
         queryKey: ['concerts', dateFrom, dateTo, zipCode ],

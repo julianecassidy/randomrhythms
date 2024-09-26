@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Alert from "@layout/Alert";
-import { useSearchDataStore } from "hooks/searchDataStore";
+// import Alert from "@layout/Alert";
+import { useSearchDataStore } from "hooks/dataStore";
 import { useShallow } from 'zustand/react/shallow'
 
 /** Component for SearchBox
@@ -31,7 +31,7 @@ function SearchBox() {
     ).toLocaleDateString('en-CA');
 
     const [formData, setFormData] = useState<FormDataState>(initialFormData);
-    const [formErrors, setFormErrors] = useState<Array<string>>([]);
+    // const [formErrors, setFormErrors] = useState<Array<string>>([]);
     // console.debug("SearchBox, formData", formData);
 
     /** Update form input. */
@@ -110,10 +110,10 @@ function SearchBox() {
                     />
                 </label>
 
-                {formErrors.length
+                {/* {formErrors.length
                     ? <Alert messages={formErrors} />
                     : null
-                }
+                } */}
 
                 <button
                     className="btn btn-lg btn-block lg:w-32 btn-primary
