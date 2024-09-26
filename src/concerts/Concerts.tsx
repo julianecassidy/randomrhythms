@@ -2,7 +2,7 @@ import ConcertList from "./ConcertList";
 import SearchBox from "./SearchBox";
 import LoadingSpinner from "@layout/LoadingSpinner";
 import { ConcertApi } from "@helpers/api";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useSearchDataStore } from "hooks/dataStore";
 import { useShallow } from 'zustand/react/shallow'
 
