@@ -50,7 +50,7 @@ function FilterBox({ filter }: FilterBoxProps) {
     };
 
     /** Handle form submit. */
-     function handleSubmit() {
+    function handleSubmit() {
         const { distance, minCost, maxCost } = formData;
 
         try {
@@ -61,54 +61,63 @@ function FilterBox({ filter }: FilterBoxProps) {
     };
 
     return (
-        <div
-            className="bg-base-200 border-[#FBFFFE] border-2 rounded-xl px-8
+        <div className="collapse md:collapse-open">
+            <input type="checkbox" className="peer" />
+            <div
+                className="collapse-title bg-primary md:bg-white text-primary-content md:text-base-100 peer-checked:bg-secondary md:peer-checked:bg-white peer-checked:text-neutral md:peer-checked:text-base-100">
+                <h3 className="text-center font-black">Filter Concerts</h3>
+            </div>
+            <div
+                className="collapse-content bg-primary md:bg-white text-primary-content md:text-base-100 peer-checked:bg-secondary md:peer-checked:bg-white peer-checked:text-base-100">
+                <div
+                    className="bg-base-200 border-[#FBFFFE] border-2 rounded-xl px-8
             lg:px-4 pt-4 pb-8"
-        >
-            <h3 className="text-center">Filter Concerts</h3>
-            <form
-                className="FilterBox-form flex flex-wrap justify-start gap-4
+                >
+                    <form
+                        className="FilterBox-form flex flex-wrap justify-start gap-4
                 sm:gap-4 w-full"
-            >
-                <label htmlFor="cost" className="w-full"><b>Cost</b></label>
-                <span className="-mt-3"><strong>$0</strong> to <strong>${`${formData.maxCost}`}</strong></span>
-                <input
-                    name="maxCost"
-                    type="range"
-                    value={formData.maxCost}
-                    min="0"
-                    max="200"
-                    step="5"
-                    className="range range-accent"
-                    onChange={handleChange}
-                />
-                <label htmlFor="distance" className="mt-4 w-full">
-                    <b>Distance</b>
-                </label>
-                <span className="-mt-3"><strong>0 mi</strong> to <strong>{`${formData.distance} mi`}</strong></span>
-                <input
-                    name="distance"
-                    type="range"
-                    value={formData.distance}
-                    min="0"
-                    max={DEFAULT_DISTANCE}
-                    className="range range-accent"
-                    onChange={handleChange}
-                />
-                <button
-                    className="btn btn-lg btn-block lg:w-32 btn-primary mt-4
+                    >
+                        <label htmlFor="cost" className="w-full"><b>Cost</b></label>
+                        <span className="-mt-3"><strong>$0</strong> to <strong>${`${formData.maxCost}`}</strong></span>
+                        <input
+                            name="maxCost"
+                            type="range"
+                            value={formData.maxCost}
+                            min="0"
+                            max="200"
+                            step="5"
+                            className="range range-accent"
+                            onChange={handleChange}
+                        />
+                        <label htmlFor="distance" className="mt-4 w-full">
+                            <b>Distance</b>
+                        </label>
+                        <span className="-mt-3"><strong>0 mi</strong> to <strong>{`${formData.distance} mi`}</strong></span>
+                        <input
+                            name="distance"
+                            type="range"
+                            value={formData.distance}
+                            min="0"
+                            max={DEFAULT_DISTANCE}
+                            className="range range-accent"
+                            onChange={handleChange}
+                        />
+                        <button
+                            className="btn btn-lg btn-block lg:w-32 btn-primary mt-4
                         mx-auto text-primary-content uppercase
                         transition duration-200 ease-in hover:btn-secondary"
-                    type="button"
-                    onClick={handleSubmit}>Apply
-                </button>
+                            type="button"
+                            onClick={handleSubmit}>Apply
+                        </button>
 
-                {formErrors.length
-                    ? <Alert messages={formErrors} />
-                    : null
-                }
+                        {formErrors.length
+                            ? <Alert messages={formErrors} />
+                            : null
+                        }
 
-            </form>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 }
