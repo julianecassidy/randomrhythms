@@ -26,7 +26,7 @@ function ConcertCard({ concert }: ConcertCardProps) {
         <div className="ConcertCard group">
             <Link to={`/concerts/${concert.id}`} >
                 <div
-                    className="ConcertCard card w-96 max-h-[450px]
+                    className="ConcertCard card w-84 md:w-96 max-h-[450px]
                     bg-neutral shadow-xl transition duration-200 ease-in
                     md:group-hover:scale-105"
                 >

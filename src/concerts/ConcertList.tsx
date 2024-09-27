@@ -63,7 +63,7 @@ function ConcertList({ concerts }: ConcertListProps) {
                     Not seeing any results? Try changing the search or updating the filters.
                 </div>
                 : <div
-                    className="ConcertList-concerts mt-8 lg:mt-0 mx-8 flex flex-wrap
+                    className="ConcertList-concerts mt-8 lg:mt-0 mx-0 md:mx-8 flex flex-wrap
                 justify-center gap-8 w-full lg:w-3/4"
                 >
                     {displayConcerts.map((c) => <ConcertCard key={c.id} concert={c} />)}
