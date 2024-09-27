@@ -25,7 +25,6 @@ import { useShallow } from 'zustand/react/shallow'
 // };
 
 function Concerts() {
-    console.debug("Concerts");
 
     // zustand for persisting search data
     const searchData = useSearchDataStore(useShallow((state) => state.searchData));

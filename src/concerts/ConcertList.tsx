@@ -24,11 +24,12 @@ type ConcertListProps = {
 function ConcertList({ concerts }: ConcertListProps) {
 
     // zustand for persisting filter data and display concerts
-    const filterData = useFilterDataStore(useShallow((state) => state.filterData));
+    // const filterData = useFilterDataStore(useShallow((state) => state.filterData));
     const [displayConcerts] = useFilterDataStore(useShallow((state) => [state.displayConcerts ?? concerts]));
     // const [displayConcerts, setDisplayConcerts] = useState<Concert[]>(concerts || []);
 
-    console.log({ concerts, filterData, displayConcerts });
+    // console.log({ concerts, filterData, displayConcerts });
+
     /** Takes optional distance, minCost, and maxCost and updates
     * displayConcerts. */
     const updateDisplayConcerts = useFilterDataStore((state) => state.filter);

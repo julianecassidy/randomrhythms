@@ -29,7 +29,7 @@ function ConcertDetail() {
     const [concertData, setConcertData] = useState<ConcertDataState>(
         { concert: null, isLoading: true }
     );
-    console.debug("ConcertDetail", "id", id, "concertData", concertData);
+    // console.debug("ConcertDetail", "id", id, "concertData", concertData);
 
     // Get concert detail from API on component mount.
     useEffect(function getConcertOnMount(): void {
@@ -109,7 +109,9 @@ function ConcertDetail() {
                             ? `Tickets start at: $${concertData.concert?.cost}`
                             : "Visit the ticketing website for pricing."}</p>
                         <button className="btn btn-primary hover:btn-secondary">
-                            <a href={concertData.concert?.ticketUrl}>Buy Tickets!</a>
+                            <a href={concertData.concert?.ticketUrl} target="_blank">
+                                Buy Tickets!
+                            </a>
                         </button>
                     </div>
                     <div className="ConcertDetail-location mt-8">
